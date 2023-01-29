@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import LandingPage from './component/landing';
 import SignInPage from './component/sign-in';
 import SignUpPage from './component/sign-up';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
