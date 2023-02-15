@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 // eslint-disable-next-line import/no-extraneous-dependencies
@@ -10,6 +11,7 @@ function SignInPage() {
   const [imgType, setImgType] = useState();
   const [user, setUser] = useState();
   const [pass, setPass] = useState();
+  const [tok, setTok] = useState();
   let count = 0;
 
   function changeInfo() {
@@ -24,21 +26,6 @@ function SignInPage() {
     }
   }
 
-  useEffect(() => {
-    // // dummy example of how to make a request to our server
-    // // note: make sure the server is running on your machine
-    // const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:8080';
-    // axios.get(`${API_URL}/api/auth/signin`).then((response) => {
-    //   const serverMessage = response?.data?.message || 'no message from server';
-    //   setMessageFromServer(`Got this message from our server: ${serverMessage}`);
-    // }).catch((error) => {
-    //   setMessageFromServer('Error communicating with server');
-    //   console.error('Error communicating with server', error);
-    // });
-    setImgType(<IoEyeOff className={styles.icons} onClick={changeInfo}/>);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
   function sendLoginInfo() {
     setUser(document.getElementById('user').value);
     setPass(document.getElementById('password').value);
@@ -48,14 +35,24 @@ function SignInPage() {
       password: pass,
     }).then((response) => {
       const serverMessage = response?.data?.message || 'no message from server';
+      setTok(response?.data?.token);
       console.log(serverMessage);
-      axios.get(`${API_URL}/api/test/user`, {
-        token: response?.data?.token,
-      });
     }).catch((error) => {
       console.error('Error communicating with server', error);
     });
+
+    // axios.get(`${API_URL}/api/user/check`, {
+    //   token: tok,
+    // }).then((response) => {
+    //   const message = response?.data;
+    //   console.log(message);
+    // });
   }
+
+  useEffect(() => {
+    setImgType(<IoEyeOff className={styles.icons} onClick={changeInfo}/>);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <body>
