@@ -1,3 +1,18 @@
 .dummyStyle {
     color: blue;
 }
+
+.buttonStyle {
+    background-color: blue;
+}
+
+.leftside {
+
+}
+
+.classone {
+    display: flex;
+    flex-direction: row;
+    background-color: #c16dcf;
+    border: solid black 10px;
+}
