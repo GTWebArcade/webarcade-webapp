@@ -1,9 +1,15 @@
 import React from 'react';
+import Button from 'react-bootstrap/Button';
 import styles from './styles.module.css';
 
 function LeftSide() {
   return (
-    <div className={styles.leftside}> left side </div>
+    <div className={styles.leftside}>
+      <h1>GT Web Dev's</h1>
+      <title>Web Arcade</title>
+      <p>Enter the Georgia Tech Web Dev Web Arcade to play
+         and rate user-made WebGL games or upload your own!</p>
+    </div>
   );
 }
 
@@ -31,6 +37,7 @@ function LandingPage() {
           <input type="text" value={username} onChange={(event) => { setUsername(event?.target?.value); }}/>
           <input type="password" value={password} onChange={(event) => { setPassword(event?.target?.value); }}/>
           <button className ={styles.buttonStyle} onClick={() => { signIn(); }}>Sign In</button>
+          <Button onClick={() => { signIn(); }}variant="primary">Sign In</Button>
           <a href='/sign-in'>Sign In</a>
           <a href='/sign-up'>Sign Up</a>
       </div>
