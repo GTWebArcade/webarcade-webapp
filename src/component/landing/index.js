@@ -5,9 +5,9 @@ import styles from './styles.module.css';
 function LeftSide() {
   return (
     <div className={styles.leftside}>
-      <h1>GT Web Dev's</h1>
-      <title>Web Arcade</title>
-      <p>Enter the Georgia Tech Web Dev Web Arcade to play
+      <h2>GT Web Dev's</h2>
+      <h1>Web Arcade</h1>
+      <p className={styles.bodyText}>Enter the Georgia Tech Web Dev Web Arcade to play
          and rate user-made WebGL games or upload your own!</p>
     </div>
   );

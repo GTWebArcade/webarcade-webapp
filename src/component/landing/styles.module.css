@@ -1,13 +1,16 @@
 .dummyStyle {
     color: blue;
 }
+h1 {
+    font-weight: 500;
+}
 
 .buttonStyle {
     background-color: blue;
 }
 
 .leftside {
-
+    display: flex;
 }
 
 .classone {
@@ -15,4 +18,8 @@
     flex-direction: row;
     background-color: #c16dcf;
     border: solid black 10px;
+}
+
+.bodyText {
+    text-align: center;
 }
