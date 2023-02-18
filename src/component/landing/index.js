@@ -22,8 +22,8 @@ function LandingPage() {
 
   // we call in the  onClick fuction in button
   function signIn() {
-    // eslint-disable-next-line no-alert
     // 26 min in, implementing axios call to backend
+    // eslint-disable-next-line no-alert
     alert('Not implemented');
   }
 
