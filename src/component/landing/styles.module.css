@@ -9,14 +9,27 @@ h1 {
     background-color: blue;
 }
 
-.leftside {
-    display: flex;
+.signInBox {
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
 }
 
-.classone {
+.leftside {
+    flex: 0.5;
+    background: gray;
+    width: 50vh;
+}
+
+.rightSide {
+    flex: 0.5;
+    background-color: #c16dcf;
+}
+
+.landingPage {
     display: flex;
     flex-direction: row;
-    background-color: #c16dcf;
+    height: 100vh;
     border: solid black 10px;
 }
 

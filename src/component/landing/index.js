@@ -2,6 +2,13 @@ import React from 'react';
 import Button from 'react-bootstrap/Button';
 import styles from './styles.module.css';
 
+// function SignInBox() {
+//   return (
+//     <div>
+
+//     </div>
+//   );
+// }
 function LeftSide() {
   return (
     <div className={styles.leftside}>
@@ -13,7 +20,7 @@ function LeftSide() {
   );
 }
 
-function LandingPage() {
+function RightSide() {
   // store input text into variables
   const [username, setUsername] = React.useState();
   const [password, setPassword] = React.useState();
@@ -26,13 +33,10 @@ function LandingPage() {
     // eslint-disable-next-line no-alert
     alert('Not implemented');
   }
-
   return (
-    <div className={styles.classone}>
-      <LeftSide/>
-      <div>
+    <div className={styles.rightSide}>
         right side
-        {/*  */}
+        <div className={styles.signInBox}>
         <p className={styles.dummyStyle}>Landing page</p>
           <input type="text" value={username} onChange={(event) => { setUsername(event?.target?.value); }}/>
           <input type="password" value={password} onChange={(event) => { setPassword(event?.target?.value); }}/>
@@ -40,7 +44,16 @@ function LandingPage() {
           <Button onClick={() => { signIn(); }}variant="primary">Sign In</Button>
           <a href='/sign-in'>Sign In</a>
           <a href='/sign-up'>Sign Up</a>
-      </div>
+        </div>
+    </div>
+  );
+}
+
+function LandingPage() {
+  return (
+    <div className={styles.landingPage}>
+      <LeftSide/>
+      <RightSide/>
     </div>
   );
 }
