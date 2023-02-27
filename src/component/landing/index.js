@@ -2,20 +2,16 @@ import React from 'react';
 import Button from 'react-bootstrap/Button';
 import styles from './styles.module.css';
 
-// function SignInBox() {
-//   return (
-//     <div>
-
-//     </div>
-//   );
-// }
 function LeftSide() {
   return (
-    <div className={styles.leftside}>
-      <h2>GT Web Dev's</h2>
-      <h1>Web Arcade</h1>
-      <p className={styles.bodyText}>Enter the Georgia Tech Web Dev Web Arcade to play
-         and rate user-made WebGL games or upload your own!</p>
+    <div className={styles.leftSide}>
+        <div className={styles.leftBox}>
+        <h2>GT Web Dev's</h2>
+        <h1 className={styles.neon}>Web Arcade</h1>
+        <p className={styles.bodyText}>Enter the Georgia Tech Web Dev Web Arcade to play
+          and rate user-made WebGL games or upload your own!</p>
+        <button className ={styles.signUpButton}>Sign Up</button>
+        </div>
     </div>
   );
 }
@@ -35,15 +31,15 @@ function RightSide() {
   }
   return (
     <div className={styles.rightSide}>
-        right side
-        <div className={styles.signInBox}>
-        <p className={styles.dummyStyle}>Landing page</p>
-          <input type="text" value={username} onChange={(event) => { setUsername(event?.target?.value); }}/>
-          <input type="password" value={password} onChange={(event) => { setPassword(event?.target?.value); }}/>
-          <button className ={styles.buttonStyle} onClick={() => { signIn(); }}>Sign In</button>
-          <Button onClick={() => { signIn(); }}variant="primary">Sign In</Button>
-          <a href='/sign-in'>Sign In</a>
-          <a href='/sign-up'>Sign Up</a>
+        <div className={styles.box}>
+          <div className={styles.signInBox}>
+          <p>Log In</p>
+            <label className={styles.inline}>Password</label>
+            <input type="text" value={username} onChange={(event) => { setUsername(event?.target?.value); }}/>
+            <label className={styles.inline}>Username</label>
+            <input type="password" value={password} onChange={(event) => { setPassword(event?.target?.value); }}/>
+            <Button onClick={() => { signIn(); }}variant="primary">Sign In</Button>
+          </div>
         </div>
     </div>
   );
