@@ -4,16 +4,19 @@ import styles from './styles.module.css';
 
 function LeftSide() {
   return (
-    <div className={styles.leftside}>
-      <h2>GT Web Dev's</h2>
-      <h1>Web Arcade</h1>
-      <p className={styles.bodyText}>Enter the Georgia Tech Web Dev Web Arcade to play
-         and rate user-made WebGL games or upload your own!</p>
+    <div className={styles.leftSide}>
+        <div className={styles.leftBox}>
+        <h2>GT Web Dev's</h2>
+        <h1 className={styles.neon}>Web Arcade</h1>
+        <p className={styles.bodyText}>Enter the Georgia Tech Web Dev Web Arcade to play
+          and rate user-made WebGL games or upload your own!</p>
+        <button className ={styles.signUpButton}>Sign Up</button>
+        </div>
     </div>
   );
 }
 
-function LandingPage() {
+function RightSide() {
   // store input text into variables
   const [username, setUsername] = React.useState();
   const [password, setPassword] = React.useState();
@@ -26,21 +29,27 @@ function LandingPage() {
     // eslint-disable-next-line no-alert
     alert('Not implemented');
   }
-
   return (
-    <div className={styles.classone}>
+    <div className={styles.rightSide}>
+        <div className={styles.box}>
+          <div className={styles.signInBox}>
+          <p>Log In</p>
+            <label className={styles.inline}>Password</label>
+            <input type="text" value={username} onChange={(event) => { setUsername(event?.target?.value); }}/>
+            <label className={styles.inline}>Username</label>
+            <input type="password" value={password} onChange={(event) => { setPassword(event?.target?.value); }}/>
+            <Button onClick={() => { signIn(); }}variant="primary">Sign In</Button>
+          </div>
+        </div>
+    </div>
+  );
+}
+
+function LandingPage() {
+  return (
+    <div className={styles.landingPage}>
       <LeftSide/>
-      <div>
-        right side
-        {/*  */}
-        <p className={styles.dummyStyle}>Landing page</p>
-          <input type="text" value={username} onChange={(event) => { setUsername(event?.target?.value); }}/>
-          <input type="password" value={password} onChange={(event) => { setPassword(event?.target?.value); }}/>
-          <button className ={styles.buttonStyle} onClick={() => { signIn(); }}>Sign In</button>
-          <Button onClick={() => { signIn(); }}variant="primary">Sign In</Button>
-          <a href='/sign-in'>Sign In</a>
-          <a href='/sign-up'>Sign Up</a>
-      </div>
+      <RightSide/>
     </div>
   );
 }
