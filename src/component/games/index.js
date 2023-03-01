@@ -11,12 +11,21 @@ function LeftText() {
     </div>
   );
 }
-function GamesPage() {
-  function signOut() { // Currently a place-holder; will need to add the actual function later
-    // eslint-disable-next-line no-alert
-    alert('Not Implemented Yet');
-  }
 
+function signOut() { // Currently a place-holder; will need to add the actual function later
+  // eslint-disable-next-line no-alert
+  alert('Not Implemented Yet');
+}
+
+function RightText() {
+  return (
+    <div className={styles.alignRight}>
+      <Button onClick={() => { (signOut()); }}variant="primary">Sign Out</Button>
+    </div>
+  );
+}
+
+function GamesPage() {
   const [games, setGames] = React.useState([ // Make array for games
     {
       name: 'game 1',
@@ -37,13 +46,11 @@ function GamesPage() {
       <div>
         <div className={styles.classone}>
           <LeftText/>
-          <div className={styles.rightside}>
-            <Button onClick={() => { (signOut()); }}variant="primary">Sign Out</Button>
-          </div>
+          <RightText/>
         </div>
         {games.map((game, imageURL, gameDataURL) => ( // What to display for each game
-          <div>
-            {game.name}
+          <div className={styles.gameClass}>
+            <p>{game.name}</p>
           </div>
         ))}
       </div>
