@@ -28,7 +28,7 @@ function RightSide() {
   function signIn() {
     // axios call to backend server
     // url of sign in endpoint
-    axios.post('http://localhost:8080/api/v1/sign-in', {
+    axios.post('http://localhost:8080/api/v1/auth/sign-in', {
       // passes this info to the backend
       username,
       password,
