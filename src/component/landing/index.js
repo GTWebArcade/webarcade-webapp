@@ -28,20 +28,43 @@ function RightSide() {
   function signIn() {
     // axios call to backend server
     // url of sign in endpoint
-    axios.post('http://localhost:8080/api/v1/auth/sign-in', {
-      // passes this info to the backend
-      username,
-      password,
-      // response
-    }).then((res) => {
-      // eslint-disable-next-line no-alert
-      alert(JSON.stringify(res.data));
-      // TODO: store access token in local storage
-    }).catch((err) => {
-      // eslint-disable-next-line no-alert
-      alert('Error communicating with the server');
-      console.error(err);
+    const data = JSON.stringify({
+      username: 'username',
+      password: 'password',
     });
+
+    const config = {
+      method: 'post',
+      maxBodyLength: Infinity,
+      url: 'http://localhost:8080/api/v1/auth/sign-in',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      data,
+    };
+
+    axios(config)
+      .then((response) => {
+        console.log(JSON.stringify(response.data));
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+
+    // axios.post('http://localhost:8080/api/v1/auth/sign-in', {
+    //   // passes this info to the backend
+    //   username,
+    //   password,
+    //   // response
+    // }).then((res) => {
+    //   // eslint-disable-next-line no-alert
+    //   alert(JSON.stringify(res.data));
+    //   // TODO: store access token in local storage
+    // }).catch((err) => {
+    //   // eslint-disable-next-line no-alert
+    //   alert('Error communicating with the server');
+    //   console.error(err);
+    // });
   }
   return (
     <div className={styles.rightSide}>
