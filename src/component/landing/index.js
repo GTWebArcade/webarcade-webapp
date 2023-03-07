@@ -1,6 +1,7 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 import styles from './styles.module.css';
 
 function LeftSide() {
@@ -43,9 +44,14 @@ function RightSide() {
       data,
     };
 
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    const navigate = useNavigate();
+
     axios(config)
       .then((response) => {
         console.log(JSON.stringify(response.data));
+        localStorage.setItem('user', JSON.stringify(response.data));
+        navigate('/api/v1/games');
       })
       .catch((error) => {
         console.log(error);
