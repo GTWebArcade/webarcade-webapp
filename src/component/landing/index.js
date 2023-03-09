@@ -26,26 +26,57 @@ function LeftSide() {
 }
 
 function RightSide() {
-  const [user, setUser] = useState();
-  const [pass, setPass] = useState();
-  const [tok, setTok] = useState();
+  const [username, setUsername] = useState();
+  const [password, setPassword] = useState();
   // event?.target?.value store the value of the input field
   // value={username} the text in the username box (not the actual username)
+  const navigate = useNavigate();
 
+  // we call in the onClick fuction in button
   function signIn() {
-    setUser(document.getElementById('user').value);
-    setPass(document.getElementById('password').value);
-    const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:8080';
-    axios.post(`${API_URL}/api/v1/auth/sign-in`, {
-      username: user,
-      password: pass,
-    }).then((response) => {
-      const serverMessage = response?.data?.message || 'no message from server';
-      setTok(response?.data?.token);
-      console.log(serverMessage);
-    }).catch((error) => {
-      console.log('Error: ', error?.response?.data?.message);
+    // axios call to backend server
+    // url of sign in endpoint
+    const data = JSON.stringify({
+      username,
+      password,
     });
+
+    const config = {
+      method: 'post',
+      maxBodyLength: Infinity,
+      url: 'http://localhost:8080/api/v1/auth/sign-in',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      data,
+    };
+
+    axios(config)
+      .then((response) => {
+        console.log(JSON.stringify(response.data));
+        localStorage.setItem('user', JSON.stringify(response.data));
+        navigate('/api/v1/games');
+      })
+      .catch((error) => {
+        console.log(error?.response?.data?.message);
+        // eslint-disable-next-line no-alert
+        alert('Invalid username or password');
+      });
+
+    // axios.post('http://localhost:8080/api/v1/auth/sign-in', {
+    //   // passes this info to the backend
+    //   username,
+    //   password,
+    //   // response
+    // }).then((res) => {
+    //   // eslint-disable-next-line no-alert
+    //   alert(JSON.stringify(res.data));
+    //   // TODO: store access token in local storage
+    // }).catch((err) => {
+    //   // eslint-disable-next-line no-alert
+    //   alert('Error communicating with the server');
+    //   console.error(err);
+    // });
   }
 
   return (
@@ -54,9 +85,9 @@ function RightSide() {
           <div className={styles.signInBox}>
           <p>Log In</p>
             <label className={styles.inline}>Username</label>
-            <input type="text" id='user' value={user} onChange={(event) => { setUser(event?.target?.value); }}/>
+            <input type="text" onChange={(event) => { setUsername(event?.target?.value); }}/>
             <label className={styles.inline}>Password</label>
-            <input type="password" id='password' value={pass} onChange={(event) => { setPass(event?.target?.value); }}/>
+            <input type="password" onChange={(event) => { setPassword(event?.target?.value); }}/>
             <Button onClick={() => { signIn(); }}variant="primary">Sign In</Button>
           </div>
         </div>
