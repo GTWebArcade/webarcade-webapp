@@ -48,11 +48,15 @@ function GamesPage() {
           <LeftText/>
           <RightText/>
         </div>
-        {games.map((game, imageURL, gameDataURL) => ( // What to display for each game
-          <div className={styles.gameClass}>
-            <p>{game.name}</p>
-          </div>
-        ))}
+        <div style={{
+          width: '100%', height: '100%', display: 'flex', flexDirection: 'row', flexWrap: 'wrap', gap: '20px', padding: '20px',
+        }}>
+          {games.map((game, imageURL, gameDataURL) => ( // What to display for each game. Add stuff
+              <div style={{ width: '300px', height: '300px', background: 'white' }} >
+                <p>{game.name}</p>
+              </div>
+          ))}
+        </div>
       </div>
   );
 }

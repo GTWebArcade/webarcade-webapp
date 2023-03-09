@@ -28,6 +28,6 @@ h1 {
     text-align: center;
 }
 
-.gameClass {
-    background-color: 'white';
+.gameClass { /* Using FlexBox, so do width: 100%, flexDirection, flexWrap, gap, display: 'flex', height: '100%', margin, padding */
+    background-color: white;
 }
