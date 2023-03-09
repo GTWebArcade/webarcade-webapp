@@ -1,11 +1,17 @@
-/* eslint-disable no-alert */
-import React from 'react';
-import Button from 'react-bootstrap/Button';
+/* eslint-disable no-unused-vars */
+import { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import Button from 'react-bootstrap/Button';
 import styles from './styles.module.css';
 
 function LeftSide() {
+  const navigate = useNavigate();
+
+  function navigateSignUp() {
+    navigate('/sign-up');
+  }
+
   return (
     <div className={styles.leftSide}>
         <div className={styles.leftBox}>
@@ -13,16 +19,15 @@ function LeftSide() {
         <h1 className={styles.neon}>Web Arcade</h1>
         <p className={styles.bodyText}>Enter the Georgia Tech Web Dev Web Arcade to play
           and rate user-made WebGL games or upload your own!</p>
-        <button className ={styles.signUpButton}>Sign Up</button>
+        <button className={styles.signUpButton} onClick={navigateSignUp}>Sign Up</button>
         </div>
     </div>
   );
 }
 
 function RightSide() {
-  // store input text into variables
-  const [username, setUsername] = React.useState();
-  const [password, setPassword] = React.useState();
+  const [username, setUsername] = useState();
+  const [password, setPassword] = useState();
   // event?.target?.value store the value of the input field
   // value={username} the text in the username box (not the actual username)
   const navigate = useNavigate();
@@ -53,7 +58,8 @@ function RightSide() {
         navigate('/api/v1/games');
       })
       .catch((error) => {
-        console.log(error);
+        console.log(error?.response?.data?.message);
+        // eslint-disable-next-line no-alert
         alert('Invalid username or password');
       });
 
@@ -72,6 +78,7 @@ function RightSide() {
     //   console.error(err);
     // });
   }
+
   return (
     <div className={styles.rightSide}>
         <div className={styles.box}>
