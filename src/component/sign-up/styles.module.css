@@ -1,3 +1,70 @@
-.dummyStyle {
-    color: red;
+.signupContainer {
+    background-color: grey;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    background-color: darkgray;
+    box-shadow: 0px 0px 10px black;
+    padding: 15px;
+}
+
+.header button {
+    border: 2px solid white;
+    color: white;
+    max-width: 100px;
+}
+
+.inSignup {
+    width: 100%;
+    max-width: 400px;
+    min-width: 400px;
+    padding: 50px;
+    box-shadow: 0px 0px 10px black;
+    background: white;
+}
+
+.signupArea {
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.title {
+    font-size: 30px;
+}
+
+.infoSec {
+    display: flex;
+    flex-direction: column;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    padding-top: 30px;
+}
+
+.info input {
+    border: 2px solid #000;
+    background: white;
+    -webkit-border-radius: 5px;
+    border-radius: 0px;
+    height: 30px;
+}
+
+.sbtnContainer {
+    padding-top: 20px;
+    text-align: center;
+}
+
+button {
+    border: none;
+    width: 50%;
+    padding: 5px;
+    border-radius: 3%;
+    background-color: darkgray;
+    font-family: IBM Piex Mono;
 }

@@ -30,7 +30,7 @@ function SignInPage() {
     setUser(document.getElementById('user').value);
     setPass(document.getElementById('password').value);
     const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:8080';
-    axios.post(`${API_URL}/api/auth/signin`, {
+    axios.post(`${API_URL}/api/v1/auth/sign-in`, {
       username: user,
       password: pass,
     }).then((response) => {
@@ -49,13 +49,22 @@ function SignInPage() {
     // });
   }
 
+  // function getGames() {
+  //   const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:8080';
+  //   axios.get(`${API_URL}/api/v1/games`, {}).then((response) => {
+  //     for (let i = 0; i < response?.data?.games.length; i += 1) {
+  //       console.log(response?.data?.games[i]?.name);
+  //     }
+  //   });
+  // }
+
   useEffect(() => {
     setImgType(<IoEyeOff className={styles.icons} onClick={changeInfo}/>);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
-    <body>
+    <div className={styles.loginContainer}>
       <div className={styles.loginArea}>
         <div className={styles.inLogin}>
           <p className={styles.title}>Log In to <br></br>WebArcade</p>
@@ -76,6 +85,8 @@ function SignInPage() {
             </div>
           </div>
 
+          {/* <button onClick={getGames}>Games</button> */}
+
           <div className={styles.btnContainer}>
             <button id="sign-in-btn" onClick={sendLoginInfo}>Login</button>
           </div>
@@ -87,7 +98,7 @@ function SignInPage() {
           <a className={styles.links} href='/'>Back</a>
         </div>
       </div>
-    </body>
+    </div>
   );
 }
 

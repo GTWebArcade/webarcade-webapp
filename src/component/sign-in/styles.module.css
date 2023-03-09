@@ -1,9 +1,10 @@
-body {
+.loginContainer {
     background-image: url('../../images/backdrop.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: 100% 100%;
 }
+
 .title {
     font-size: 30px;
 }
