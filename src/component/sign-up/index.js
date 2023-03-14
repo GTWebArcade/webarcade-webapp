@@ -2,6 +2,7 @@ import { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import styles from './styles.module.css';
+import { API_URL } from '../../api';
 
 function SignUpPage() {
   const [user, setUser] = useState();
@@ -15,7 +16,6 @@ function SignUpPage() {
     setEma(document.getElementById('email').value);
     setPass(document.getElementById('password').value);
     setCPass(document.getElementById('cpassword').value);
-    const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:8080';
     axios.post(`${API_URL}/api/v1/auth/sign-up`, {
       username: user,
       email: ema,
