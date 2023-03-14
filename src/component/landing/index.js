@@ -4,6 +4,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import styles from './styles.module.css';
+import { API_URL } from '../../api';
 
 function LeftSide() {
   const navigate = useNavigate();
@@ -44,7 +45,7 @@ function RightSide() {
     const config = {
       method: 'post',
       maxBodyLength: Infinity,
-      url: 'http://localhost:8080/api/v1/auth/sign-in',
+      url: `${API_URL}/api/v1/auth/sign-in`,
       headers: {
         'Content-Type': 'application/json',
       },
