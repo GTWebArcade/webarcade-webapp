@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { Unity, useUnityContext } from 'react-unity-webgl';
+import styles from './styles.module.css';
 
 function GameLoadedPage() {
   const { unityProvider } = useUnityContext({
@@ -42,8 +43,7 @@ function GameLoadedPage() {
     handleChangePixelRatio();
   }, [handleChangePixelRatio]);
 
-  return (<div>
-    Hello world
+  return (<div className={styles.center}>
     <Unity unityProvider={unityProvider}
     style={{ width: 800, height: 600 }}
     devicePixelRatio={devicePixelRatio} />
