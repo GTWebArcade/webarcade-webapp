@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import { useNavigate } from 'react-router-dom';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { Unity, useUnityContext } from 'react-unity-webgl';
+import styles from './styles.module.css';
 
 function GameLoadedPage() {
   const { unityProvider } = useUnityContext({
@@ -42,8 +44,19 @@ function GameLoadedPage() {
     handleChangePixelRatio();
   }, [handleChangePixelRatio]);
 
-  return (<div>
-    Hello world
+  const navigate = useNavigate();
+
+  function navigateLanding() {
+    navigate('/');
+  }
+
+  return (<div className={styles.center}>
+    <span className={styles.section}>
+      <h1 className={styles.text}>
+      Cooking with ONE!
+      </h1>
+      <button className={styles.button} onClick={navigateLanding}>Log Out</button>
+    </span>
     <Unity unityProvider={unityProvider}
     style={{ width: 800, height: 600 }}
     devicePixelRatio={devicePixelRatio} />
