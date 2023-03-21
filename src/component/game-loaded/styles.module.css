@@ -7,6 +7,7 @@
     ;
 }
 .section {
+    display: flex;
     overflow: auto;
     background-color: white;
     height: 20%;
@@ -15,4 +16,8 @@
 .text {
     font-size: 1.875em;
     color: black;
+}
+.button {
+    margin-left: auto;
+    width: 10%;
 }
