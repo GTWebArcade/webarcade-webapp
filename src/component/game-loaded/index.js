@@ -44,6 +44,11 @@ function GameLoadedPage() {
   }, [handleChangePixelRatio]);
 
   return (<div className={styles.center}>
+    <div className={styles.section}>
+      <h1 className={styles.text}>
+      Cooking with ONE!
+      </h1>
+    </div>
     <Unity unityProvider={unityProvider}
     style={{ width: 800, height: 600 }}
     devicePixelRatio={devicePixelRatio} />

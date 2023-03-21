@@ -1,6 +1,18 @@
 .center {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: black;
+    background: #4E4E4E;
+    ;
+}
+.section {
+    overflow: auto;
+    background-color: white;
+    height: 20%;
+    width: 100%;
+}
+.text {
+    font-size: 1.875em;
+    color: black;
 }
