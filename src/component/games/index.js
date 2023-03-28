@@ -28,19 +28,14 @@ function RightText() {
 
 function GamesPage() {
   const [games, setGames] = React.useState([ // Make array for games
-    {
-      name: 'game 1',
-    },
-    {
-      name: 'game 2',
-    },
+
   ]);
 
   React.useEffect(() => {
     axios.get(`${API_URL}/api/v1/games`).then((res) => {
       // TODO: fix sytax
-      setGames(res.body);
-      console.log(res.body);
+      setGames(res.data.games);
+      console.log(res.data.games);
     });
   }, []);
 
@@ -54,11 +49,12 @@ function GamesPage() {
           width: '100%', height: '100%', display: 'flex', flexDirection: 'row', flexWrap: 'wrap', gap: '20px', padding: '20px',
         }}>
           {games.map((game, imageURL, gameDataURL) => ( // What to display for each game. Add stuff
-              <div style={{ width: '300px', height: '300px', background: 'white' }} >
+              // eslint-disable-next-line no-underscore-dangle
+              <div style={{ width: '300px', height: '300px', background: 'white' }} key = {game._id} >
                 <p>{gameDataURL.name}</p>
-                <p>{imageURL}</p>
+                <p>{game.imageURL}</p>
                 <p>{game.name}</p>
-                <img src = {imageURL} alt = {game.name}></img>
+                <img width = "100%" height = "auto" src = {game.imageUrl} alt = {game.name}></img>
               </div>
           ))}
         </div>
