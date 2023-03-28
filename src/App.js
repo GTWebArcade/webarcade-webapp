@@ -1,18 +1,18 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import LandingPage from './component/landing';
-import SignInPage from './component/sign-in';
 import SignUpPage from './component/sign-up';
-import GamesPage from './component/games';
+import GameViewPage from './component/game-view';
+import GameLoadedPage from './component/game-loaded';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={ <LandingPage/> } />
-        <Route path="sign-in" element={ <SignInPage/> } />
+        <Route path="" element={ <LandingPage/> } />
         <Route path="sign-up" element={ <SignUpPage/> } />
-        <Route path="games" element={ <GamesPage/> } />
+        <Route path="game-view" element={ <GameViewPage/> } />
+        <Route path="game-loaded" element={ <GameLoadedPage/> } />
       </Routes>
     </BrowserRouter>
   );
