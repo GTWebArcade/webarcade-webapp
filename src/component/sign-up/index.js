@@ -16,6 +16,7 @@ function SignUpPage() {
     setEma(document.getElementById('email').value);
     setPass(document.getElementById('password').value);
     setCPass(document.getElementById('cpassword').value);
+
     axios.post(`${API_URL}/api/v1/auth/sign-up`, {
       username: user,
       email: ema,
