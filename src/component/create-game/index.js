@@ -88,7 +88,7 @@ function CreateGamePage() {
               </div>
               <div className={styles.gameInfo}>
                   <label>Description:</label>
-                  <input id="desc" type="text" className={styles.userItem} value={description} onChange={(event) => { setDescription(event?.target?.value); }}></input>
+                  <textarea id="desc" type="text" className={styles.userItem} value={description} onChange={(event) => { setDescription(event?.target?.value); }}></textarea>
               </div>
               <div className={styles.gameInfo}>
                   <label>Game Type:</label>
