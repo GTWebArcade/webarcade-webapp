@@ -3,6 +3,7 @@ import axios from 'axios';
 import React from 'react';
 import Button from 'react-bootstrap/Button';
 import styles from './styles.module.css';
+import { API_URL } from '../../api';
 
 function LeftText() {
   return (
@@ -36,9 +37,10 @@ function GamesPage() {
   ]);
 
   React.useEffect(() => {
-    axios.get('serverurl/games').then((res) => {
+    axios.get(`${API_URL}/api/v1/games`).then((res) => {
       // TODO: fix sytax
       setGames(res.body);
+      console.log(res.body);
     });
   }, []);
 
@@ -53,7 +55,10 @@ function GamesPage() {
         }}>
           {games.map((game, imageURL, gameDataURL) => ( // What to display for each game. Add stuff
               <div style={{ width: '300px', height: '300px', background: 'white' }} >
+                <p>{gameDataURL.name}</p>
+                <p>{imageURL}</p>
                 <p>{game.name}</p>
+                <img src = {imageURL} alt = {game.name}></img>
               </div>
           ))}
         </div>
