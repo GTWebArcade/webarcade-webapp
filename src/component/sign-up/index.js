@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import styles from './styles.module.css';
@@ -10,6 +10,13 @@ function SignUpPage() {
   const [pass, setPass] = useState();
   const [cpass, setCPass] = useState();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    // navigate to games page if signed in
+    if (localStorage.getItem('user')) {
+      navigate('/games');
+    }
+  }, [navigate]);
 
   function sendSignupInfo() {
     setUser(document.getElementById('user').value);
