@@ -14,12 +14,20 @@ function LeftText() {
   );
 }
 
-function signOut() { // Currently a place-holder; will need to add the actual function later
-  // eslint-disable-next-line no-alert
-  alert('Not Implemented Yet');
-}
-
 function RightText() {
+  const navigate = useNavigate();
+
+  function signOut() { // Currently a place-holder; will need to add the actual function later
+    try {
+      localStorage.removeItem('user');
+      navigate('/');
+    } catch (e) {
+      console.error('Error removing user', e);
+      // eslint-disable-next-line no-alert
+      alert('Unable to sign out');
+    }
+  }
+
   return (
     <div className={styles.alignRight}>
       <Button onClick={() => { (signOut()); }}variant="primary">Sign Out</Button>
@@ -33,6 +41,13 @@ function GamesPage() {
   const [games, setGames] = React.useState([ // Make array for games
 
   ]);
+
+  React.useEffect(() => {
+    // navigate to landing page if not signed in
+    if (!localStorage.getItem('user')) {
+      navigate('/');
+    }
+  }, [navigate]);
 
   React.useEffect(() => {
     axios.get(`${API_URL}/api/v1/games`).then((res) => {

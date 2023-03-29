@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
@@ -97,6 +97,15 @@ function RightSide() {
 }
 
 function LandingPage() {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    // navigate to games page if signed in
+    if (localStorage.getItem('user')) {
+      navigate('/games');
+    }
+  }, [navigate]);
+
   return (
     <div className={styles.landingPage}>
       <LeftSide/>
