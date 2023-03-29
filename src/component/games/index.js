@@ -2,6 +2,7 @@
 import axios from 'axios';
 import React from 'react';
 import Button from 'react-bootstrap/Button';
+import { useNavigate } from 'react-router-dom';
 import styles from './styles.module.css';
 import { API_URL } from '../../api';
 
@@ -27,6 +28,8 @@ function RightText() {
 }
 
 function GamesPage() {
+  const navigate = useNavigate();
+
   const [games, setGames] = React.useState([ // Make array for games
 
   ]);
@@ -48,12 +51,15 @@ function GamesPage() {
         <div style={{
           width: '100%', height: '100%', display: 'flex', flexDirection: 'row', flexWrap: 'wrap', gap: '20px', padding: '20px',
         }}>
-          {games.map((game, imageURL, gameDataURL) => ( // What to display for each game. Add stuff
+          {games.map((game) => ( // What to display for each game. Add stuff
               // eslint-disable-next-line no-underscore-dangle
-              <div style={{ width: '300px', height: '300px', background: 'white' }} key = {game._id} >
-                <p>{gameDataURL.name}</p>
-                <p>{game.imageURL}</p>
+              <div style={{ width: '300px', height: '300px', background: 'white' }} key = {game._id}
+                onClick={() => {
+                  // eslint-disable-next-line no-underscore-dangle
+                  navigate(`/game-loaded/${game._id}`);
+                }}>
                 <p>{game.name}</p>
+                <p>{game.imageURL}</p>
                 <img width = "100%" height = "auto" src = {game.imageUrl} alt = {game.name}></img>
               </div>
           ))}

@@ -56,7 +56,7 @@ function RightSide() {
       .then((response) => {
         console.log(JSON.stringify(response.data));
         localStorage.setItem('user', JSON.stringify(response.data));
-        navigate('/api/v1/games');
+        navigate('/games');
       })
       .catch((error) => {
         console.log(error?.response?.data?.message);
