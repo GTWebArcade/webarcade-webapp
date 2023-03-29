@@ -40,7 +40,7 @@ function GamesPage() {
   }, []);
 
   return (
-      <div>
+      <div style = {{ backgroundColor: '#c16dcf' }}>
         <div className={styles.classone}>
           <LeftText/>
           <RightText/>

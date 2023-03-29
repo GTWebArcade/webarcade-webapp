@@ -29,5 +29,5 @@ h1 {
 }
 
 .gameClass { /* Using FlexBox, so do width: 100%, flexDirection, flexWrap, gap, display: 'flex', height: '100%', margin, padding */
-    background-color: white;
+    background-color: #c16dcf;
 }
