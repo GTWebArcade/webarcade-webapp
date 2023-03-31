@@ -11,9 +11,11 @@ h1 {
 }
 
 .alignRight {
-    margin-right: -100px;
-    width: 250px;
+    margin-right: 20px;
+    width: 350px;
     padding: 10px 24px;
+    display: flex;
+    flex-direction: row;
 }
 
 .classone {
@@ -30,4 +32,17 @@ h1 {
 
 .gameClass { /* Using FlexBox, so do width: 100%, flexDirection, flexWrap, gap, display: 'flex', height: '100%', margin, padding */
     background-color: #c16dcf;
+}
+
+.btn1 {
+    padding-right: 50px;
+}
+
+.createBtn {
+    width: 150px;
+}
+
+.name {
+    padding-right: 80px;
+    font-size: 20px;
 }

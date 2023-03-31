@@ -1,10 +1,17 @@
+/* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable no-unused-vars */
 import React, { useState, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
-// eslint-disable-next-line import/no-extraneous-dependencies
+import Modal from 'react-bootstrap/Modal';
+import Button from 'react-bootstrap/Button';
+import { Rating } from 'react-simple-star-rating';
+import axios from 'axios';
 import { Unity, useUnityContext } from 'react-unity-webgl';
 import styles from './styles.module.css';
+import { API_URL } from '../../api';
 
 function GameLoadedPage() {
+  const navigate = useNavigate();
   const { unityProvider } = useUnityContext({
     loaderUrl: 'CookingGame/Build/v10 webgl (final build).loader.js',
     dataUrl: 'CookingGame/Build/v10 webgl (final build).data',
@@ -16,6 +23,36 @@ function GameLoadedPage() {
   const [devicePixelRatio, setDevicePixelRatio] = useState(
     window.devicePixelRatio,
   );
+
+  const [review, setReview] = useState('');
+  const [rating, setRating] = useState(0);
+  const handleRating = (rate) => {
+    setRating(rate);
+  };
+
+  const [show, setShow] = useState(false);
+  const handleClose = () => {
+    setShow(false);
+    navigate('/games');
+  };
+  const handleShow = () => {
+    setShow(true);
+  };
+  const sendReview = () => {
+    axios.post(`${API_URL}/api/v1/game/create-game`, {
+      user: JSON.parse(localStorage.getItem('user')).username,
+      gameId: new URL(window.location.href).searchParams.get('gameId'),
+      ratingScore: rating.toString,
+      ratingMessage: review,
+      createdAt: Date.now().toString,
+      updatedAt: Date.now().toString,
+    }).then((response) => {
+      const serverMessage = response?.data?.message || 'no message from server';
+      console.log(serverMessage);
+    }).catch((error) => {
+      console.log('Error: ', error?.response?.data?.message);
+    });
+  };
 
   const handleChangePixelRatio = useCallback(
     () => {
@@ -44,14 +81,33 @@ function GameLoadedPage() {
     handleChangePixelRatio();
   }, [handleChangePixelRatio]);
 
-  const navigate = useNavigate();
-
   function navigateLanding() {
     navigate('/');
   }
 
-  return (<div className={styles.center}>
+  return (
+  <div className={styles.center}>
+    <Modal show={show} onHide={handleClose}>
+      <Modal.Header closeButton>
+        <Modal.Title>Review</Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+        <p>Before you go back, leave a rating for</p>
+        <Rating
+          onClick={handleRating}
+          // onPointerEnter={onPointerEnter}
+          // onPointerLeave={onPointerLeave}
+          // onPointerMove={onPointerMove}
+        />
+        <p className={styles.title3}>Leave a review as well.</p>
+        <textarea id="rev" type="text" wrap='soft' className={styles.review} placeholder='Give a review.' value={review} onChange={(event) => { setReview(event?.target?.value); }}></textarea>
+      </Modal.Body>
+      <Modal.Footer>
+        <Button variant="primary" onClick={sendReview}>Submit</Button>
+      </Modal.Footer>
+    </Modal>
     <span className={styles.section}>
+      <button variant="primary" onClick={handleShow} className={styles.modalBtn}>Go Back</button>
       <h1 className={styles.text}>
       Cooking with ONE!
       </h1>

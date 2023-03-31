@@ -81,7 +81,6 @@ function SignUpPage() {
           <div className={styles.sbtnContainer}>
             <button id="sign-up-btn" onClick={sendSignupInfo}>Sign Up</button>
           </div>
-
           {/* <div className={styles.createAccount}>
             <span id="label-ca">Don't have an account?  </span>
             <a className={styles.links} href="/sign-up">Create Account</a>

@@ -71,9 +71,15 @@ button {
 
 .left input {
     border: 2px solid black;
-    width: 200px;
+    width: 250px;
 }
 
 .right {
     padding-left: 50px;
+}
+
+.desc {
+    min-height: 180px;
+    max-height: 180px;
+    word-wrap: normal;
 }

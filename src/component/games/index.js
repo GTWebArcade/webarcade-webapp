@@ -1,7 +1,7 @@
+/* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable no-unused-vars */
 import axios from 'axios';
 import React from 'react';
-import Button from 'react-bootstrap/Button';
 import { useNavigate } from 'react-router-dom';
 import styles from './styles.module.css';
 import { API_URL } from '../../api';
@@ -30,7 +30,12 @@ function RightText() {
 
   return (
     <div className={styles.alignRight}>
-      <Button onClick={() => { (signOut()); }}variant="primary">Sign Out</Button>
+      {/* <span className={styles.name}>Hello,
+      {JSON.parse(localStorage.getItem('user')).username}</span> */}
+      <div className={styles.btn1}>
+        <button onClick={() => { navigate('/create-game'); }} variant="primary" className={styles.createBtn}>Upload Game</button>
+      </div>
+      <button onClick={() => { (signOut()); }} variant="primary">Sign Out</button>
     </div>
   );
 }
@@ -71,7 +76,7 @@ function GamesPage() {
               <div style={{ width: '300px', height: '300px', background: 'white' }} key = {game._id}
                 onClick={() => {
                   // eslint-disable-next-line no-underscore-dangle
-                  navigate(`/game-loaded/${game._id}`);
+                  navigate(`/game-loaded?gameId=${game._id}`);
                 }}>
                 <p>{game.name}</p>
                 <p>{game.imageURL}</p>

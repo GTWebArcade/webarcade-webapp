@@ -16,8 +16,24 @@
 .text {
     font-size: 1.875em;
     color: black;
+    margin-left: 33%;
 }
 .button {
     margin-left: auto;
     width: 10%;
+}
+
+.title3 {
+    padding-top: 30px;
+}
+
+.modalBtn {
+    width: 200px;
+}
+
+.review {
+    min-height: 80px;
+    max-height: 80px;
+    min-width: 100%;
+    word-wrap: normal;
 }

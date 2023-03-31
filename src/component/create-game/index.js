@@ -56,9 +56,9 @@ function CreateGamePage() {
       frameworkUrl: frameworkurl,
       codeUrl: codeurl,
       imageUrl: imageurl,
-      uploaderUserId: localStorage.getItem('user'),
-      createdAt: Date.now(),
-      updatedAt: Date.now(),
+      uploaderUserId: JSON.parse(localStorage.getItem('user')).username,
+      createdAt: Date.now().toString,
+      updatedAt: Date.now().toString,
     }).then((response) => {
       const serverMessage = response?.data?.message || 'no message from server';
       console.log(serverMessage);
@@ -88,7 +88,7 @@ function CreateGamePage() {
               </div>
               <div className={styles.gameInfo}>
                   <label>Description:</label>
-                  <textarea id="desc" type="text" className={styles.userItem} value={description} onChange={(event) => { setDescription(event?.target?.value); }}></textarea>
+                  <textarea id="desc" type="text" wrap='soft' className={styles.desc} value={description} onChange={(event) => { setDescription(event?.target?.value); }}></textarea>
               </div>
               <div className={styles.gameInfo}>
                   <label>Game Type:</label>
