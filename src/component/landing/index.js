@@ -59,7 +59,8 @@ function RightSide() {
         navigate('/games');
       })
       .catch((error) => {
-        console.log(error?.response?.data?.message);
+        console.log(error?.response?.data?.message?.response?.data?.message);
+        // eslint-disable-next-line no-alert
         // eslint-disable-next-line no-alert
         alert('Invalid username or password');
       });
