@@ -1,7 +1,8 @@
-import { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import styles from './styles.module.css';
+import { API_URL } from '../../api';
 
 function SignUpPage() {
   const [user, setUser] = useState();
@@ -10,12 +11,19 @@ function SignUpPage() {
   const [cpass, setCPass] = useState();
   const navigate = useNavigate();
 
+  useEffect(() => {
+    // navigate to games page if signed in
+    if (localStorage.getItem('user')) {
+      navigate('/games');
+    }
+  }, [navigate]);
+
   function sendSignupInfo() {
     setUser(document.getElementById('user').value);
     setEma(document.getElementById('email').value);
     setPass(document.getElementById('password').value);
     setCPass(document.getElementById('cpassword').value);
-    const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:8080';
+
     axios.post(`${API_URL}/api/v1/auth/sign-up`, {
       username: user,
       email: ema,
