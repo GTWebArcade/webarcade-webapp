@@ -12,7 +12,7 @@ function App() {
         <Route path="" element={ <LandingPage/> } />
         <Route path="sign-up" element={ <SignUpPage/> } />
         <Route path="game-view" element={ <GameViewPage/> } />
-        <Route path="game-loaded" element={ <GameLoadedPage/> } />
+        <Route path="games-loaded/:id" element={<GameLoadedPage />}></Route>
       </Routes>
     </BrowserRouter>
   );

@@ -1,8 +1,13 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import {
+  useNavigate,
+  useParams,
+} from 'react-router-dom';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { Unity, useUnityContext } from 'react-unity-webgl';
 import styles from './styles.module.css';
+// import { getPost, getPosts } from './api';
 
 function GameLoadedPage() {
   const { unityProvider } = useUnityContext({
@@ -10,6 +15,13 @@ function GameLoadedPage() {
     dataUrl: 'CookingGame/Build/v10 webgl (final build).data',
     frameworkUrl: 'CookingGame/Build/v10 webgl (final build).framework.js',
     codeUrl: 'CookingGame/Build/v10 webgl (final build).wasm',
+  });
+
+  const { id } = useParams();
+  console.log(id);
+  // {curly brace should be api url}
+  axios.get(`${id}/api/v1/${id}`).then((res) => {
+    console.log(res.data);
   });
 
   // We'll use a state to store the device pixel ratio.
