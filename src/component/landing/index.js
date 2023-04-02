@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
@@ -56,10 +56,11 @@ function RightSide() {
       .then((response) => {
         console.log(JSON.stringify(response.data));
         localStorage.setItem('user', JSON.stringify(response.data));
-        navigate('/api/v1/games');
+        navigate('/games');
       })
       .catch((error) => {
-        console.log(error?.response?.data?.message);
+        console.log(error?.response?.data?.message?.response?.data?.message);
+        // eslint-disable-next-line no-alert
         // eslint-disable-next-line no-alert
         alert('Invalid username or password');
       });
@@ -97,6 +98,15 @@ function RightSide() {
 }
 
 function LandingPage() {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    // navigate to games page if signed in
+    if (localStorage.getItem('user')) {
+      navigate('/games');
+    }
+  }, [navigate]);
+
   return (
     <div className={styles.landingPage}>
       <LeftSide/>

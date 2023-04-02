@@ -1,0 +1,33 @@
+.dummyStyle {
+    color: blue;
+}
+h1 {
+    font-weight: 500;
+    margin-left: 10px;
+}
+
+.buttonStyle {
+    background-color: blue;
+}
+
+.alignRight {
+    margin-right: -100px;
+    width: 250px;
+    padding: 10px 24px;
+}
+
+.classone {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    background-color: #c16dcf;
+    border: solid black 10px;
+}
+
+.bodyText {
+    text-align: center;
+}
+
+.gameClass { /* Using FlexBox, so do width: 100%, flexDirection, flexWrap, gap, display: 'flex', height: '100%', margin, padding */
+    background-color: #c16dcf;
+}
