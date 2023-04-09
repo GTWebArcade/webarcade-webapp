@@ -42,7 +42,7 @@ function GameLoadedPage() {
     console.log('url', url);
     axios.get(url).then((res) => {
       console.log('game info:', res.data);
-      setGame(res.data);
+      setGame(res.data.game);
     });
   }, [id]);
 

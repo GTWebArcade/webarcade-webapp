@@ -18,20 +18,6 @@ function GameViewPage() {
         console.log(response?.data?.games[i]?.name);
         gameList.push(response?.data?.games[i]);
         filteredList.push(response?.data?.games[i]);
-
-        // const game = document.createElement('GameCard', { header: 'name', body: 'working' });
-        // const name = document.createTextNode(response?.data?.games[i]?.name);
-        // game.appendChild(name);
-
-        // const section = document.getElementById('games');
-        // section.appendChild(game);
-
-        // const card = gameCardTemplate.content.cloneNode(true).children[0];
-        // const header = card.querySelector('[game-header]');
-        // const body = card.querySelector('[game-body]');
-        // header.textContent = response?.data?.games[i]?.name;
-        // body.textContent = response?.data?.games[i]?.imageUrl;
-        // gameCardContainer.append(card);
       }
     });
   }
@@ -50,11 +36,6 @@ function GameViewPage() {
       if (gameList[i].name.toLowerCase().includes(filter)) {
         console.log(gameList[i]);
         filteredList.push(gameList[i]);
-        // const game = document.createElement('p');
-        // const name = document.createTextNode(gameList[i].name);
-        // game.appendChild(name);
-
-        // section.appendChild(game);
       }
     }
   }
@@ -70,9 +51,7 @@ function GameViewPage() {
     <div className={styles.gameArea}>
         <input id="searchbar" type="text" className={styles.searchBar} onChange={filterGames}></input>
         <div id='games'>{filteredList.map((game) => <GameCard header={game.name} body={game.imageUrl}/>)}</div>
-        {/* <div id='games'></div> */}
     </div>
-    // {/* <button onClick={test}>Games</button> */}
   );
 }
 
