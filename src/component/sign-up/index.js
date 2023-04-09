@@ -54,11 +54,11 @@ function SignUpPage() {
     <div className={styles.signupContainer}>
       <div className={styles.header}>
           <p>LOGO</p>
-          <button className={styles.loginButton} onClick={navigateLogin}>Login</button>
+          <button className={styles.loginButton} onClick={navigateLogin}>LOGIN</button>
       </div>
       <div className={styles.signupArea}>
         <div className={styles.inSignup}>
-          <p className={styles.title}>Sign Up</p>
+          <p className={styles.title}>SIGN UP</p>
           <div className={styles.infoSec}>
             <div className={styles.info}>
                 <label>Username:</label>
