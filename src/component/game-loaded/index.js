@@ -31,8 +31,6 @@ function GameLoadedPage() {
     codeUrl: 'CookingGame/Build/v10 webgl (final build).wasm',
   });
   */
-
-  // did i write this right?
   const [game, setGame] = useState(undefined);
   const { id } = useParams();
   console.log(id);
@@ -83,12 +81,16 @@ function GameLoadedPage() {
   function navigateLanding() {
     navigate('/');
   }
+  function navigateGamesView() {
+    navigate('/games');
+  }
 
   return (<div className={styles.center}>
     <span className={styles.section}>
       <h1 className={styles.text}>
-      Cooking with ONE!
+      Game title, to be implemented
       </h1>
+      <button className={styles.button} onClick={navigateGamesView}>Back to Games</button>
       <button className={styles.button} onClick={navigateLanding}>Log Out</button>
     </span>
     {
