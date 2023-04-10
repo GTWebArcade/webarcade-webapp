@@ -1,16 +1,48 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import {
+  useNavigate,
+  useParams,
+} from 'react-router-dom';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { Unity, useUnityContext } from 'react-unity-webgl';
 import styles from './styles.module.css';
+import { API_URL } from '../../api';
+// import { getPost, getPosts } from './api';
+function UnityWrapper(props) {
+  const { unityProvider } = useUnityContext({
+    loaderUrl: props.loaderUrl,
+    dataUrl: props.dataUrl,
+    frameworkUrl: props.frameworkUrl,
+    codeUrl: props.codeUrl,
+  });
+  return (<Unity unityProvider={unityProvider}
+  style={{ width: 800, height: 600 }}
+  devicePixelRatio={devicePixelRatio} />);
+}
 
 function GameLoadedPage() {
+  // const [unityProvider, setUnityProvider] = useState(undefined);
+  /*
   const { unityProvider } = useUnityContext({
-    loaderUrl: 'CookingGame/Build/v10 webgl (final build).loader.js',
+    loaderUrl: 'CookingGame/Build/v10 ,
     dataUrl: 'CookingGame/Build/v10 webgl (final build).data',
     frameworkUrl: 'CookingGame/Build/v10 webgl (final build).framework.js',
     codeUrl: 'CookingGame/Build/v10 webgl (final build).wasm',
   });
+  */
+  const [game, setGame] = useState(undefined);
+  const { id } = useParams();
+  console.log(id);
+  useEffect(() => {
+    console.log('render');
+    const url = `${API_URL}/api/v1/game/${id}`;
+    console.log('url', url);
+    axios.get(url).then((res) => {
+      console.log('game info:', res.data);
+      setGame(res.data.game);
+    });
+  }, [id]);
 
   // We'll use a state to store the device pixel ratio.
   const [devicePixelRatio, setDevicePixelRatio] = useState(
@@ -49,17 +81,23 @@ function GameLoadedPage() {
   function navigateLanding() {
     navigate('/');
   }
+  function navigateGamesView() {
+    navigate('/games');
+  }
 
   return (<div className={styles.center}>
     <span className={styles.section}>
       <h1 className={styles.text}>
-      Cooking with ONE!
+      Game title, to be implemented
       </h1>
+      <button className={styles.button} onClick={navigateGamesView}>Back to Games</button>
       <button className={styles.button} onClick={navigateLanding}>Log Out</button>
     </span>
-    <Unity unityProvider={unityProvider}
-    style={{ width: 800, height: 600 }}
-    devicePixelRatio={devicePixelRatio} />
+    {
+      game && <UnityWrapper loaderUrl={game.unityLoaderUrl}
+      dataUrl={game.unityDataUrl}
+      frameworkUrl={game.unityFrameworkUrl} codeUrl={game.unityCodeUrl} />
+    }
   </div>);
 }
 export default GameLoadedPage;

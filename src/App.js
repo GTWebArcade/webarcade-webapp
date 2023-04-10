@@ -17,7 +17,7 @@ function App() {
         <Route path="sign-up" element={ <SignUpPage/> } />
         <Route path="game-view" element={ <GameViewPage/> } />
         <Route path="create-game" element={ <CreateGamePage/> } />
-        <Route path="game-loaded" element={ <GameLoadedPage/> } />
+        <Route path="games-loaded/:id" element={<GameLoadedPage/> } />
         <Route path="games" element={ <GamesPage/> } />
       </Routes>
     </BrowserRouter>
