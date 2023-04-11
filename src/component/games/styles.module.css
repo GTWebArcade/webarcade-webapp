@@ -4,6 +4,7 @@
 h1 {
     font-weight: 500;
     margin-left: 10px;
+    display: inline
 }
 
 .buttonStyle {

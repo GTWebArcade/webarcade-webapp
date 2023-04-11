@@ -9,6 +9,7 @@ import { API_URL } from '../../api';
 function LeftText() {
   return (
     <div className={styles.leftside}>
+      <h1>LOGO </h1>
       <h1>Games</h1>
     </div>
   );
@@ -58,7 +59,9 @@ function GamesPage() {
   }, []);
 
   return (
-      <div style = {{ backgroundColor: '#c16dcf' }}>
+      <div style = {{
+        backgroundColor: '#c16dcf', position: 'fixed', top: '0%', bottom: '0%', left: '0%', right: '0%',
+      }}>
         <div className={styles.classone}>
           <LeftText/>
           <RightText/>
