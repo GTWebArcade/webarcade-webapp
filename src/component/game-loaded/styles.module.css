@@ -16,7 +16,7 @@
 .text {
     font-size: 1.875em;
     color: black;
-    margin-left: 33%;
+    text-align: center;
 }
 .button {
     margin-left: auto;
@@ -29,11 +29,4 @@
 
 .modalBtn {
     width: 200px;
-}
-
-.review {
-    min-height: 80px;
-    max-height: 80px;
-    min-width: 100%;
-    word-wrap: normal;
 }

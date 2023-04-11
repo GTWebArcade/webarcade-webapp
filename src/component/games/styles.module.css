@@ -46,3 +46,10 @@ h1 {
     padding-right: 80px;
     font-size: 20px;
 }
+
+.review {
+    min-height: 80px;
+    max-height: 80px;
+    min-width: 100%;
+    word-wrap: normal;
+}

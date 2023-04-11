@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import styles from './styles.module.css';
@@ -17,11 +17,6 @@ function CreateGamePage() {
   const navigate = useNavigate();
 
   async function sendGameInfo() {
-    setLoaderUrl(document.getElementById('loader').value);
-    setDataUrl(document.getElementById('data').value);
-    setFrameworkUrl(document.getElementById('framework').value);
-    setCodeUrl(document.getElementById('code').value);
-    setImageUrl(document.getElementById('image').value);
     try {
       const serverMessage = await axios.post(`${API_URL}/api/v1/file-upload`, { file: loaderurl });
       console.log(serverMessage);
@@ -56,9 +51,9 @@ function CreateGamePage() {
       frameworkUrl: frameworkurl,
       codeUrl: codeurl,
       imageUrl: imageurl,
-      uploaderUserId: JSON.parse(localStorage.getItem('user')).username,
-      createdAt: Date.now().toString,
-      updatedAt: Date.now().toString,
+      uploaderUserId: JSON.parse(localStorage.getItem('user')).id,
+      createdAt: Date.now(),
+      updatedAt: Date.now(),
     }).then((response) => {
       const serverMessage = response?.data?.message || 'no message from server';
       console.log(serverMessage);
@@ -98,23 +93,23 @@ function CreateGamePage() {
             <div className={styles.right}>
               <div className={styles.gameInfo}>
                   <label>Loader Url:</label>
-                  <input id="loader" type="file" className={styles.userItem}></input>
+                  <input id="loader" type="file" className={styles.userItem} onChange={(event) => { setLoaderUrl(event?.target?.files[0]); }}></input>
               </div>
               <div className={styles.gameInfo}>
                   <label>Data Url:</label>
-                  <input id="data" type="file" className={styles.userItem}></input>
+                  <input id="data" type="file" className={styles.userItem} onChange={(event) => { setDataUrl(event?.target?.files[0]); }}></input>
               </div>
               <div className={styles.gameInfo}>
                   <label>Framework Url:</label>
-                  <input id="framework" type="file" className={styles.userItem}></input>
+                  <input id="framework" type="file" className={styles.userItem} onChange={(event) => { setFrameworkUrl(event?.target?.files[0]); }}></input>
               </div>
               <div className={styles.gameInfo}>
                   <label>Code Url:</label>
-                  <input id="code" type="file" className={styles.userItem}></input>
+                  <input id="code" type="file" className={styles.userItem} onChange={(event) => { setCodeUrl(event?.target?.files[0]); }}></input>
               </div>
               <div className={styles.gameInfo}>
                   <label>Image Url:</label>
-                  <input id="image" type="file" className={styles.userItem}></input>
+                  <input id="image" type="file" className={styles.userItem} onChange={(event) => { setImageUrl(event?.target?.files[0]); }}></input>
               </div>
             </div>
           </div>
