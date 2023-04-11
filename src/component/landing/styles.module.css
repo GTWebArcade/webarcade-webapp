@@ -34,6 +34,18 @@ a {
     height: 300px;
     border:1px solid grey;
     padding:20px;
+    font-family: 'IBM Plex Mono';
+    font-weight: bold;
+}
+
+.signInBox p{
+    font-size: 28px;
+}
+
+.signInBox button {
+    border-color: rgb(55, 54, 54);
+    border-radius: 0;
+    background-color: rgb(55, 54, 54);
 }
 
 .leftSide {
