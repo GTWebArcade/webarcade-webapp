@@ -8,7 +8,7 @@ import { API_URL } from '../../api';
 function CreateGamePage() {
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
-  const [type, setType] = useState('');
+  const [type, setType] = useState('Unity');
   const [loaderurl, setLoaderUrl] = useState('');
   const [dataurl, setDataUrl] = useState('');
   const [frameworkurl, setFrameworkUrl] = useState('');
