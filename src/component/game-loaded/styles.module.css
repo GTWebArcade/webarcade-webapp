@@ -16,8 +16,17 @@
 .text {
     font-size: 1.875em;
     color: black;
+    text-align: center;
 }
 .button {
     margin-left: auto;
     width: 10%;
+}
+
+.title3 {
+    padding-top: 30px;
+}
+
+.modalBtn {
+    width: 200px;
 }

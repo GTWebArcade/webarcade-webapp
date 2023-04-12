@@ -1,3 +1,5 @@
+/* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable no-unused-vars */
 import React, { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 import {
@@ -22,6 +24,7 @@ function UnityWrapper(props) {
 }
 
 function GameLoadedPage() {
+  const navigate = useNavigate();
   // const [unityProvider, setUnityProvider] = useState(undefined);
   /*
   const { unityProvider } = useUnityContext({
@@ -48,6 +51,18 @@ function GameLoadedPage() {
   const [devicePixelRatio, setDevicePixelRatio] = useState(
     window.devicePixelRatio,
   );
+
+  const goBack = () => {
+    localStorage.setItem('page', 'games-loaded');
+    navigate('/games');
+    // window.location.reload();
+  };
+
+  // try to remove the alert with the error - just print to console
+
+  // function alert(message) {
+  //   console.log(message);
+  // }
 
   const handleChangePixelRatio = useCallback(
     () => {
@@ -76,8 +91,6 @@ function GameLoadedPage() {
     handleChangePixelRatio();
   }, [handleChangePixelRatio]);
 
-  const navigate = useNavigate();
-
   function navigateLanding() {
     navigate('/');
   }
@@ -85,12 +98,12 @@ function GameLoadedPage() {
     navigate('/games');
   }
 
-  return (<div className={styles.center}>
+  return (
+  <div className={styles.center}>
     <span className={styles.section}>
-      <h1 className={styles.text}>
-      Game title, to be implemented
-      </h1>
-      <button className={styles.button} onClick={navigateGamesView}>Back to Games</button>
+      <button variant="primary" onClick={navigateGamesView} className={styles.modalBtn}>Go Back</button>
+      <h1 className={styles.text}>Game title, to be implemented</h1>
+      {/* <button className={styles.button} onClick={navigateGamesView}>Back to Games</button> */}
       <button className={styles.button} onClick={navigateLanding}>Log Out</button>
     </span>
     {
