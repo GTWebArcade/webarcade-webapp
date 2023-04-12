@@ -101,9 +101,9 @@ function GameLoadedPage() {
   return (
   <div className={styles.center}>
     <span className={styles.section}>
-      <button variant="primary" onClick={goBack} className={styles.modalBtn}>Go Back</button>
+      <button variant="primary" onClick={navigateGamesView} className={styles.modalBtn}>Go Back</button>
       <h1 className={styles.text}>Game title, to be implemented</h1>
-      <button className={styles.button} onClick={navigateGamesView}>Back to Games</button>
+      {/* <button className={styles.button} onClick={navigateGamesView}>Back to Games</button> */}
       <button className={styles.button} onClick={navigateLanding}>Log Out</button>
     </span>
     {

@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable no-unused-vars */
 import axios from 'axios';
@@ -10,9 +11,13 @@ import styles from './styles.module.css';
 import { API_URL } from '../../api';
 
 function LeftText() {
+  const navigate = useNavigate();
   return (
     <div className={styles.leftside}>
-      <h1>Games</h1>
+      <h1>Logo</h1>
+      <div className={styles.btn1}>
+        <button onClick={() => { navigate('/create-game'); }} variant="primary" className={styles.createBtn}>UPLOAD GAME</button>
+      </div>
     </div>
   );
 }
@@ -33,12 +38,7 @@ function RightText() {
 
   return (
     <div className={styles.alignRight}>
-      {/* <span className={styles.name}>Hello,
-      {JSON.parse(localStorage.getItem('user')).username}</span> */}
-      <div className={styles.btn1}>
-        <button onClick={() => { navigate('/create-game'); }} variant="primary" className={styles.createBtn}>Upload Game</button>
-      </div>
-      <button onClick={() => { (signOut()); }} variant="primary">Sign Out</button>
+      <button onClick={() => { (signOut()); }} variant="primary">LOG OUT</button>
     </div>
   );
 }
@@ -50,6 +50,7 @@ function GamesPage() {
   const [review, setReview] = useState('');
   const [rating, setRating] = useState(0);
   const [count, setCount] = useState(0);
+  const [user, setUser] = useState('');
   const handleRating = (rate) => {
     setRating(rate);
   };
@@ -60,7 +61,7 @@ function GamesPage() {
   };
   const handleShow = async () => {
     window.location.reload();
-    await localStorage.setItem('page', 'games');
+    localStorage.setItem('page', 'games');
     handleShow();
     setShow(true);
   };
@@ -70,6 +71,7 @@ function GamesPage() {
     if (!localStorage.getItem('user')) {
       navigate('/');
     }
+    setUser(JSON.parse(localStorage.getItem('user')).username.toUpperCase());
   }, [navigate]);
 
   useEffect(() => {
@@ -77,9 +79,9 @@ function GamesPage() {
       // TODO: fix sytax
       setGames(res.data.games);
     });
-    if (localStorage.getItem('page') === 'games-loaded') {
-      handleShow();
-    }
+    // if (localStorage.getItem('page') === 'games-loaded') {
+    //   handleShow();
+    // }
   }, []);
 
   const sendReview = () => {
@@ -100,7 +102,7 @@ function GamesPage() {
   };
 
   return (
-      <div style = {{ backgroundColor: '#c16dcf' }}>
+      <div className={styles.gamesWrap}>
         <Modal show={show} onHide={handleClose}>
           <Modal.Header closeButton>
             <Modal.Title>Review</Modal.Title>
@@ -124,19 +126,29 @@ function GamesPage() {
           <LeftText/>
           <RightText/>
         </div>
+        <div className={styles.welcome}>
+          <p>WELCOME BACK, {user}!</p>
+          <input type='text' placeholder='Find a game...'/>
+        </div>
+        <div className={styles.entrance}>
+          <p>ENTER THE ARCADE</p>
+        </div>
         <div style={{
-          width: '100%', height: '100%', display: 'flex', flexDirection: 'row', flexWrap: 'wrap', gap: '20px', padding: '20px',
+          width: '100%', height: '100%', display: 'flex', flexDirection: 'row', flexWrap: 'wrap', gap: '70px', padding: '50px', textAlign: 'center',
         }}>
           {games.map((game) => ( // What to display for each game. Add stuff
-              // eslint-disable-next-line no-underscore-dangle
-              <div style={{ width: '300px', height: '300px', background: 'white' }} key = {game._id}
-                onClick={() => {
-                  // eslint-disable-next-line no-underscore-dangle
-                  navigate(`/game-loaded?gameId=${game._id}`);
-                }}>
-                <p>{game.name}</p>
-                <p>{game.imageURL}</p>
-                <img width = "100%" height = "auto" src = {game.imageUrl} alt = {game.name}></img>
+              <div className={styles.gameContainer}>
+                <div className={styles.gameTitle}>
+                  <p>{game.name}</p>
+                </div>
+                <div className={styles.gameCard} key={game._id}
+                  onClick={() => {
+                    // eslint-disable-next-line no-underscore-dangle
+                    navigate(`/games-loaded/${game._id}`);
+                  } }>
+                  <p>{game.imageURL}</p>
+                  <img width="100%" height="auto" src={game.imageUrl} alt={game.name}></img>
+                </div>
               </div>
           ))}
         </div>
