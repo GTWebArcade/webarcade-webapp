@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import styles from './styles.module.css';
-import { API_URL } from '../../api';
+import { API_URL, getAuthHeaders } from '../../api';
 
 function SignUpPage() {
   const [user, setUser] = useState();
@@ -29,6 +29,8 @@ function SignUpPage() {
       email: ema,
       password: pass,
       cpassword: cpass,
+    }, {
+      headers: getAuthHeaders(),
     }).then((response) => {
       const serverMessage = response?.data?.message || 'no message from server';
       console.log(serverMessage);

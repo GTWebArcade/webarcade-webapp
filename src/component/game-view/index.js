@@ -4,6 +4,7 @@ import axios from 'axios';
 import { useState, useEffect, useRef } from 'react';
 import styles from './styles.module.css';
 import GameCard from '../game-cards';
+import { getAuthHeaders } from '../../api';
 
 function GameViewPage() {
   const [phrase, setPhrase] = useState('');
@@ -13,7 +14,9 @@ function GameViewPage() {
 
   function getGames() {
     const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:8080';
-    axios.get(`${API_URL}/api/v1/games`, {}).then((response) => {
+    axios.get(`${API_URL}/api/v1/games`, {
+      headers: getAuthHeaders(),
+    }).then((response) => {
       for (let i = 0; i < response?.data?.games.length; i += 1) {
         console.log(response?.data?.games[i]?.name);
         gameList.push(response?.data?.games[i]);

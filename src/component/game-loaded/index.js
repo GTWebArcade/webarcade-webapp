@@ -9,7 +9,7 @@ import {
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { Unity, useUnityContext } from 'react-unity-webgl';
 import styles from './styles.module.css';
-import { API_URL } from '../../api';
+import { API_URL, getAuthHeaders } from '../../api';
 // import { getPost, getPosts } from './api';
 function UnityWrapper(props) {
   const { unityProvider } = useUnityContext({
@@ -41,7 +41,9 @@ function GameLoadedPage() {
     console.log('render');
     const url = `${API_URL}/api/v1/game/${id}`;
     console.log('url', url);
-    axios.get(url).then((res) => {
+    axios.get(url, {
+      headers: getAuthHeaders(),
+    }).then((res) => {
       console.log('game info:', res.data);
       setGame(res.data.game);
     });

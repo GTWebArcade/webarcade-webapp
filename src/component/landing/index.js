@@ -29,8 +29,6 @@ function LeftSide() {
 function RightSide() {
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();
-  // event?.target?.value store the value of the input field
-  // value={username} the text in the username box (not the actual username)
   const navigate = useNavigate();
 
   // we call in the onClick fuction in button
@@ -61,24 +59,8 @@ function RightSide() {
       .catch((error) => {
         console.log(error?.response?.data?.message?.response?.data?.message);
         // eslint-disable-next-line no-alert
-        // eslint-disable-next-line no-alert
         alert('Invalid username or password');
       });
-
-    // axios.post('http://localhost:8080/api/v1/auth/sign-in', {
-    //   // passes this info to the backend
-    //   username,
-    //   password,
-    //   // response
-    // }).then((res) => {
-    //   // eslint-disable-next-line no-alert
-    //   alert(JSON.stringify(res.data));
-    //   // TODO: store access token in local storage
-    // }).catch((err) => {
-    //   // eslint-disable-next-line no-alert
-    //   alert('Error communicating with the server');
-    //   console.error(err);
-    // });
   }
 
   return (
