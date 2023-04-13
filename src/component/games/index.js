@@ -8,7 +8,7 @@ import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import { Rating } from 'react-simple-star-rating';
 import styles from './styles.module.css';
-import { API_URL } from '../../api';
+import { API_URL, getAuthHeaders } from '../../api';
 
 function LeftText() {
   const navigate = useNavigate();
@@ -75,7 +75,9 @@ function GamesPage() {
   }, [navigate]);
 
   useEffect(() => {
-    axios.get(`${API_URL}/api/v1/games`).then((res) => {
+    axios.get(`${API_URL}/api/v1/games`, {
+      headers: getAuthHeaders(),
+    }).then((res) => {
       // TODO: fix sytax
       setGames(res.data.games);
     });
@@ -92,6 +94,8 @@ function GamesPage() {
       ratingMessage: review,
       createdAt: Date.now(),
       updatedAt: Date.now(),
+    }, {
+      headers: getAuthHeaders(),
     }).then((response) => {
       const serverMessage = response?.data?.message || 'no message from server';
       console.log(serverMessage);

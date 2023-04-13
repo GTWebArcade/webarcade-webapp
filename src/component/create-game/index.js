@@ -3,7 +3,7 @@ import { useState, useRef } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import styles from './styles.module.css';
-import { API_URL } from '../../api';
+import { API_URL, getAuthHeaders } from '../../api';
 
 function CreateGamePage() {
   const [name, setName] = useState('');
@@ -18,25 +18,33 @@ function CreateGamePage() {
 
   async function sendGameInfo() {
     try {
-      const serverMessage = await axios.post(`${API_URL}/api/v1/file-upload`, { file: loaderurl });
+      const serverMessage = await axios.post(`${API_URL}/api/v1/file-upload`, { file: loaderurl }, {
+        headers: getAuthHeaders(),
+      });
       console.log(serverMessage);
     } catch (e) {
       console.log(e);
     }
     try {
-      const serverMessage2 = await axios.post(`${API_URL}/api/v1/file-upload`, { file: dataurl });
+      const serverMessage2 = await axios.post(`${API_URL}/api/v1/file-upload`, { file: dataurl }, {
+        headers: getAuthHeaders(),
+      });
       console.log(serverMessage2);
     } catch (e) {
       console.log(e);
     }
     try {
-      const serverMessage3 = await axios.post(`${API_URL}/api/v1/file-upload`, { file: frameworkurl });
+      const serverMessage3 = await axios.post(`${API_URL}/api/v1/file-upload`, { file: frameworkurl }, {
+        headers: getAuthHeaders(),
+      });
       console.log(serverMessage3);
     } catch (e) {
       console.log(e);
     }
     try {
-      const serverMessage4 = await axios.post(`${API_URL}/api/v1/file-upload`, { file: codeurl });
+      const serverMessage4 = await axios.post(`${API_URL}/api/v1/file-upload`, { file: codeurl }, {
+        headers: getAuthHeaders(),
+      });
       console.log(serverMessage4);
     } catch (e) {
       console.log(e);
@@ -54,6 +62,8 @@ function CreateGamePage() {
       uploaderUserId: JSON.parse(localStorage.getItem('user')).id,
       createdAt: Date.now(),
       updatedAt: Date.now(),
+    }, {
+      headers: getAuthHeaders(),
     }).then((response) => {
       const serverMessage = response?.data?.message || 'no message from server';
       console.log(serverMessage);
