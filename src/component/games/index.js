@@ -137,9 +137,7 @@ function GamesPage() {
         <div className={styles.entrance}>
           <p>ENTER THE ARCADE</p>
         </div>
-        <div style={{
-          width: '100%', height: '100%', display: 'flex', flexDirection: 'row', flexWrap: 'wrap', gap: '70px', padding: '50px', textAlign: 'center',
-        }}>
+        <div className={styles.allGames}>
           {games.map((game) => ( // What to display for each game. Add stuff
               <div className={styles.gameContainer}>
                 <div className={styles.gameTitle}>
