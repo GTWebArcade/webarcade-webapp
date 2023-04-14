@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a13deca-800d-428b-8918-41542b88efff" name="Changes" comment="Create game form will now reject user if they are not logged in" />
+    <list default="true" id="3a13deca-800d-428b-8918-41542b88efff" name="Changes" comment="Create game form will now reject user if they are not logged in">
+      <change beforePath="$PROJECT_DIR$/src/component/create-game/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/create-game/index.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -65,6 +67,7 @@
       <workItem from="1681427478171" duration="382000" />
       <workItem from="1681428062958" duration="2569000" />
       <workItem from="1681434655902" duration="321000" />
+      <workItem from="1681437957168" duration="37000" />
     </task>
     <task id="LOCAL-00001" summary="Fix upload game form">
       <created>1681431684983</created>

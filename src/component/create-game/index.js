@@ -166,23 +166,23 @@ function CreateGamePage() {
             </div>
             <div className={styles.right}>
               <div className={styles.gameInfo}>
-                  <label>Loader Url:</label>
+                  <label>Loader File:</label>
                   <input id="loader" type="file" className={styles.userItem} onChange={(event) => { setLoaderFile(event?.target?.files[0]); }}></input>
               </div>
               <div className={styles.gameInfo}>
-                  <label>Data Url:</label>
+                  <label>Data File:</label>
                   <input id="data" type="file" className={styles.userItem} onChange={(event) => { setDataFile(event?.target?.files[0]); }}></input>
               </div>
               <div className={styles.gameInfo}>
-                  <label>Framework Url:</label>
+                  <label>Framework File:</label>
                   <input id="framework" type="file" className={styles.userItem} onChange={(event) => { setFrameworkFile(event?.target?.files[0]); }}></input>
               </div>
               <div className={styles.gameInfo}>
-                  <label>Code Url:</label>
+                  <label>Code File (WASM):</label>
                   <input id="code" type="file" className={styles.userItem} onChange={(event) => { setCodeFile(event?.target?.files[0]); }}></input>
               </div>
               <div className={styles.gameInfo}>
-                  <label>Image Url:</label>
+                  <label>Image File (PNG OR JPG):</label>
                   <input id="image" type="file" className={styles.userItem} onChange={(event) => { setImageFile(event?.target?.files[0]); }}></input>
               </div>
             </div>
