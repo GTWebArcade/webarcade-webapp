@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-globals */
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect, useCallback } from 'react';
@@ -35,6 +36,7 @@ function GameLoadedPage() {
   });
   */
   const [game, setGame] = useState(undefined);
+  const [name, setName] = useState('');
   const { id } = useParams();
   console.log(id);
   useEffect(() => {
@@ -43,6 +45,7 @@ function GameLoadedPage() {
     console.log('url', url);
     axios.get(url).then((res) => {
       console.log('game info:', res.data);
+      setName(res.data.game.name);
       setGame(res.data.game);
     });
   }, [id]);
@@ -51,12 +54,6 @@ function GameLoadedPage() {
   const [devicePixelRatio, setDevicePixelRatio] = useState(
     window.devicePixelRatio,
   );
-
-  const goBack = () => {
-    localStorage.setItem('page', 'games-loaded');
-    navigate('/games');
-    // window.location.reload();
-  };
 
   // try to remove the alert with the error - just print to console
 
@@ -95,17 +92,20 @@ function GameLoadedPage() {
     navigate('/');
   }
   function navigateGamesView() {
-    navigate('/games');
+    const urlSplit = location.href.split('/');
+    location.href = `${urlSplit[0]}/games`;
   }
 
   return (
   <div className={styles.center}>
-    <span className={styles.section}>
+    <div className={styles.section}>
       <button variant="primary" onClick={navigateGamesView} className={styles.modalBtn}>Go Back</button>
-      <h1 className={styles.text}>Game title, to be implemented</h1>
       {/* <button className={styles.button} onClick={navigateGamesView}>Back to Games</button> */}
       <button className={styles.button} onClick={navigateLanding}>Log Out</button>
-    </span>
+    </div>
+    <div className={styles.titleSec}>
+      <h1 className={styles.text}>{name}</h1>
+    </div>
     {
       game && <UnityWrapper loaderUrl={game.unityLoaderUrl}
       dataUrl={game.unityDataUrl}
