@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a13deca-800d-428b-8918-41542b88efff" name="Changes" comment="Create game form will now reject user if they are not logged in">
-      <change beforePath="$PROJECT_DIR$/src/component/create-game/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/create-game/index.js" afterDir="false" />
+    <list default="true" id="3a13deca-800d-428b-8918-41542b88efff" name="Changes" comment="Rename input fields">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/games/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/games/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/games/styles.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/games/styles.module.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +69,8 @@
       <workItem from="1681427478171" duration="382000" />
       <workItem from="1681428062958" duration="2569000" />
       <workItem from="1681434655902" duration="321000" />
-      <workItem from="1681437957168" duration="37000" />
+      <workItem from="1681437957168" duration="65000" />
+      <workItem from="1681440007477" duration="975000" />
     </task>
     <task id="LOCAL-00001" summary="Fix upload game form">
       <created>1681431684983</created>
@@ -90,7 +93,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681434972205</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Rename input fields">
+      <created>1681438003211</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1681438003211</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -100,6 +110,7 @@
     <MESSAGE value="Fix upload game form" />
     <MESSAGE value="Fix form for web build" />
     <MESSAGE value="Create game form will now reject user if they are not logged in" />
-    <option name="LAST_COMMIT_MESSAGE" value="Create game form will now reject user if they are not logged in" />
+    <MESSAGE value="Rename input fields" />
+    <option name="LAST_COMMIT_MESSAGE" value="Rename input fields" />
   </component>
 </project>

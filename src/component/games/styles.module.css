@@ -75,6 +75,47 @@
     height: 300px;
     background-color: white;
     box-shadow: 0 8px 20px #4E4E4E;
+    position: relative;
+}
+
+.gameImage {
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.gameImage:hover {
+    display: none;
+}
+
+.gameDescription {
+    z-index: 10000;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0);
+    color: rgba(0, 0, 0, 0);
+    margin: 0;
+    overflow-y: scroll;
+}
+
+.gameDescription:hover {
+    z-index: 10000;
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 70%);
+    color: white;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    margin: 0;
 }
 
 .welcome {

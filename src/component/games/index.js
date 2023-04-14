@@ -148,8 +148,10 @@ function GamesPage() {
                     // eslint-disable-next-line no-underscore-dangle
                     navigate(`/games-loaded/${game._id}`);
                   } }>
-                  <p>{game.imageURL}</p>
-                  <img width="100%" height="auto" src={game.imageUrl} alt={game.name}></img>
+                  <img className={styles.gameImage} src={game.imageUrl} alt={game.name}></img>
+                  <p className={styles.gameDescription}>
+                    {game.description}
+                  </p>
                 </div>
               </div>
           ))}
