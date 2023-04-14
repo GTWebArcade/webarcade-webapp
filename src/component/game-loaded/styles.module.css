@@ -15,6 +15,7 @@
 .text {
     font-size: 1.875em;
     color: black;
+    text-align: center;
 }
 .button {
     margin-left: auto;
