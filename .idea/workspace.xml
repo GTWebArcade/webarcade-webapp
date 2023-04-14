@@ -4,25 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a13deca-800d-428b-8918-41542b88efff" name="Changes" comment="Add favicon and modify requests to utilize authentication token">
+    <list default="true" id="3a13deca-800d-428b-8918-41542b88efff" name="Changes" comment="Show game description on hover">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/CookingGame/Build/v10 webgl (final build).data" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/CookingGame/Build/v10 webgl (final build).framework.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/CookingGame/Build/v10 webgl (final build).loader.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/CookingGame/Build/v10 webgl (final build).wasm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/CookingGame/StreamingAssets/UnityServicesProjectConfiguration.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/CookingGame/TemplateData/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/CookingGame/TemplateData/fullscreen-button.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/CookingGame/TemplateData/progress-bar-empty-dark.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/CookingGame/TemplateData/progress-bar-empty-light.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/CookingGame/TemplateData/progress-bar-full-dark.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/CookingGame/TemplateData/progress-bar-full-light.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/CookingGame/TemplateData/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/CookingGame/TemplateData/unity-logo-dark.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/CookingGame/TemplateData/unity-logo-light.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/CookingGame/TemplateData/webgl-logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/CookingGame/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/create-game/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/create-game/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/games/styles.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/games/styles.module.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,11 +66,59 @@
       <workItem from="1681423145452" duration="261000" />
       <workItem from="1681423408497" duration="2667000" />
       <workItem from="1681427478171" duration="382000" />
-      <workItem from="1681428062958" duration="1713000" />
+      <workItem from="1681428062958" duration="2569000" />
+      <workItem from="1681434655902" duration="321000" />
+      <workItem from="1681437957168" duration="65000" />
+      <workItem from="1681440007477" duration="1301000" />
+      <workItem from="1681441729375" duration="55000" />
     </task>
+    <task id="LOCAL-00001" summary="Fix upload game form">
+      <created>1681431684983</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1681431684983</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Fix form for web build">
+      <created>1681434113557</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1681434113557</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Create game form will now reject user if they are not logged in">
+      <created>1681434972205</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1681434972205</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Rename input fields">
+      <created>1681438003211</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1681438003211</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Show game description on hover">
+      <created>1681440999531</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1681440999531</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Fix upload game form" />
+    <MESSAGE value="Fix form for web build" />
+    <MESSAGE value="Create game form will now reject user if they are not logged in" />
+    <MESSAGE value="Rename input fields" />
+    <MESSAGE value="Show game description on hover" />
+    <option name="LAST_COMMIT_MESSAGE" value="Show game description on hover" />
   </component>
 </project>

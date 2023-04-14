@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import { useState, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import styles from './styles.module.css';
@@ -108,10 +108,10 @@ function CreateGamePage() {
       name: document.getElementById('name').value,
       description: document.getElementById('desc').value,
       gameType: document.getElementById('type').value,
-      dataUrl,
-      loaderUrl,
-      frameworkUrl,
-      codeUrl,
+      unityDataUrl: dataUrl,
+      unityLoaderUrl: loaderUrl,
+      unityFrameworkUrl: frameworkUrl,
+      unityCodeUrl: codeUrl,
       imageUrl,
       uploaderUserId: JSON.parse(localStorage.getItem('user')).id,
       createdAt: Date.now(),
@@ -121,6 +121,9 @@ function CreateGamePage() {
     }).then((response) => {
       const serverMessage = response?.data?.message || 'no message from server';
       console.log(serverMessage);
+      // eslint-disable-next-line no-alert
+      alert('Game uploaded!');
+      navigate('/games');
     }).catch((error) => {
       console.log('Error: ', error?.response?.data?.message);
     });
@@ -129,6 +132,13 @@ function CreateGamePage() {
   function navigateBack() {
     navigate('/');
   }
+
+  useEffect(() => {
+    // navigate to landing page if not signed in
+    if (!localStorage.getItem('user')) {
+      navigate('/');
+    }
+  }, [navigate]);
 
   return (
     <div className={styles.createGameContainer}>
@@ -156,23 +166,23 @@ function CreateGamePage() {
             </div>
             <div className={styles.right}>
               <div className={styles.gameInfo}>
-                  <label>Loader Url:</label>
+                  <label>Loader File:</label>
                   <input id="loader" type="file" className={styles.userItem} onChange={(event) => { setLoaderFile(event?.target?.files[0]); }}></input>
               </div>
               <div className={styles.gameInfo}>
-                  <label>Data Url:</label>
+                  <label>Data File:</label>
                   <input id="data" type="file" className={styles.userItem} onChange={(event) => { setDataFile(event?.target?.files[0]); }}></input>
               </div>
               <div className={styles.gameInfo}>
-                  <label>Framework Url:</label>
+                  <label>Framework File:</label>
                   <input id="framework" type="file" className={styles.userItem} onChange={(event) => { setFrameworkFile(event?.target?.files[0]); }}></input>
               </div>
               <div className={styles.gameInfo}>
-                  <label>Code Url:</label>
+                  <label>Code File (WASM):</label>
                   <input id="code" type="file" className={styles.userItem} onChange={(event) => { setCodeFile(event?.target?.files[0]); }}></input>
               </div>
               <div className={styles.gameInfo}>
-                  <label>Image Url:</label>
+                  <label>Image File (PNG OR JPG):</label>
                   <input id="image" type="file" className={styles.userItem} onChange={(event) => { setImageFile(event?.target?.files[0]); }}></input>
               </div>
             </div>
