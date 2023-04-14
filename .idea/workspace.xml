@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a13deca-800d-428b-8918-41542b88efff" name="Changes" comment="Fix upload game form">
+    <list default="true" id="3a13deca-800d-428b-8918-41542b88efff" name="Changes" comment="Fix form for web build">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/component/create-game/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/create-game/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -65,7 +66,8 @@
       <workItem from="1681423145452" duration="261000" />
       <workItem from="1681423408497" duration="2667000" />
       <workItem from="1681427478171" duration="382000" />
-      <workItem from="1681428062958" duration="2552000" />
+      <workItem from="1681428062958" duration="2569000" />
+      <workItem from="1681434655902" duration="202000" />
     </task>
     <task id="LOCAL-00001" summary="Fix upload game form">
       <created>1681431684983</created>
@@ -74,7 +76,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681431684983</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Fix form for web build">
+      <created>1681434113557</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1681434113557</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -82,6 +91,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Fix upload game form" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix upload game form" />
+    <MESSAGE value="Fix form for web build" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix form for web build" />
   </component>
 </project>

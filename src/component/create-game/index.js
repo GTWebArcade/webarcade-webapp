@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import { useState, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import styles from './styles.module.css';
@@ -121,6 +121,9 @@ function CreateGamePage() {
     }).then((response) => {
       const serverMessage = response?.data?.message || 'no message from server';
       console.log(serverMessage);
+      // eslint-disable-next-line no-alert
+      alert('Game uploaded!');
+      navigate('/games');
     }).catch((error) => {
       console.log('Error: ', error?.response?.data?.message);
     });
@@ -129,6 +132,13 @@ function CreateGamePage() {
   function navigateBack() {
     navigate('/');
   }
+
+  useEffect(() => {
+    // navigate to landing page if not signed in
+    if (!localStorage.getItem('user')) {
+      navigate('/');
+    }
+  }, [navigate]);
 
   return (
     <div className={styles.createGameContainer}>
