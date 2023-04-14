@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a13deca-800d-428b-8918-41542b88efff" name="Changes" comment="Show game description on hover">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/games/styles.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/games/styles.module.css" afterDir="false" />
-    </list>
+    <list default="true" id="3a13deca-800d-428b-8918-41542b88efff" name="Changes" comment="Transparent scrollbar" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -70,7 +67,7 @@
       <workItem from="1681434655902" duration="321000" />
       <workItem from="1681437957168" duration="65000" />
       <workItem from="1681440007477" duration="1301000" />
-      <workItem from="1681441729375" duration="55000" />
+      <workItem from="1681441729375" duration="68000" />
     </task>
     <task id="LOCAL-00001" summary="Fix upload game form">
       <created>1681431684983</created>
@@ -107,7 +104,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681440999531</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Transparent scrollbar">
+      <created>1681441791422</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1681441791422</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -119,6 +123,7 @@
     <MESSAGE value="Create game form will now reject user if they are not logged in" />
     <MESSAGE value="Rename input fields" />
     <MESSAGE value="Show game description on hover" />
-    <option name="LAST_COMMIT_MESSAGE" value="Show game description on hover" />
+    <MESSAGE value="Transparent scrollbar" />
+    <option name="LAST_COMMIT_MESSAGE" value="Transparent scrollbar" />
   </component>
 </project>
