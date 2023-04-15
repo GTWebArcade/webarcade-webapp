@@ -14,15 +14,23 @@ import { API_URL, getAuthHeaders } from '../../api';
 import logo from '../../images/logo.png';
 
 function UnityWrapper(props) {
-  const { unityProvider } = useUnityContext({
+  const { unityProvider, loadingProgression, isLoaded } = useUnityContext({
     loaderUrl: props.loaderUrl,
     dataUrl: props.dataUrl,
     frameworkUrl: props.frameworkUrl,
     codeUrl: props.codeUrl,
   });
-  return (<Unity unityProvider={unityProvider}
-  style={{ width: 800, height: 600 }}
-  devicePixelRatio={devicePixelRatio} />);
+  return (
+    <>
+    {!isLoaded && (
+      <h1 className={styles.loading}>Loading Application...
+      {Math.round(loadingProgression * 100)}%</h1>
+    )}
+    <Unity unityProvider={unityProvider}
+    style={{ width: 800, height: 600 }}
+    devicePixelRatio={devicePixelRatio} />
+    </>
+  );
 }
 
 function GameLoadedPage() {
