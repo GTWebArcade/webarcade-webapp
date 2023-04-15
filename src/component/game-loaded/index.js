@@ -99,20 +99,24 @@ function GameLoadedPage() {
   }
 
   return (
-  <div className={styles.center}>
-    <div className={styles.section}>
-      <button variant="primary" onClick={navigateGamesView} className={styles.modalBtn}>Go Back</button>
-      {/* <button className={styles.button} onClick={navigateGamesView}>Back to Games</button> */}
-      <button className={styles.button} onClick={navigateLanding}>Log Out</button>
+    <div className={styles.center}>
+      <div className={styles.section}>
+        <button variant="primary" onClick={navigateGamesView} className={styles.modalBtn}>Go Back</button>
+        {/* <button className={styles.button} onClick={navigateGamesView}>Back to Games</button> */}
+        <button className={styles.button} onClick={navigateLanding}>Log Out</button>
+      </div>
+      <div className={styles.titleSec}>
+        <h1 className={styles.text}>{name}</h1>
+      </div>
+      {
+        game && <UnityWrapper loaderUrl={game.unityLoaderUrl}
+        dataUrl={game.unityDataUrl}
+        frameworkUrl={game.unityFrameworkUrl} codeUrl={game.unityCodeUrl} />
+      }
+      <div>
+        <h1>Ratings</h1>
+      </div>
     </div>
-    <div className={styles.titleSec}>
-      <h1 className={styles.text}>{name}</h1>
-    </div>
-    {
-      game && <UnityWrapper loaderUrl={game.unityLoaderUrl}
-      dataUrl={game.unityDataUrl}
-      frameworkUrl={game.unityFrameworkUrl} codeUrl={game.unityCodeUrl} />
-    }
-  </div>);
+  );
 }
 export default GameLoadedPage;
