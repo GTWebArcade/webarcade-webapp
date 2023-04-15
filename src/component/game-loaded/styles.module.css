@@ -17,15 +17,25 @@
     color: black;
     text-align: center;
 }
+.loading {
+    position: absolute;
+    top: 50%;
+    color: white;
+    font-size: 30px;
+}
 .button {
     margin-left: auto;
     width: 10%;
 }
-
+.logo {
+    position: fixed;
+    left: 0;
+    top: 0px;
+}
 .title3 {
     padding-top: 30px;
 }
-
 .modalBtn {
-    width: 200px;
+    margin-left: 90px;
+    width: 100px;
 }

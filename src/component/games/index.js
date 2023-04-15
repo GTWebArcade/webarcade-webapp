@@ -9,12 +9,13 @@ import Button from 'react-bootstrap/Button';
 import { Rating } from 'react-simple-star-rating';
 import styles from './styles.module.css';
 import { API_URL, getAuthHeaders } from '../../api';
+import logo from '../../images/logo.png';
 
 function LeftText() {
   const navigate = useNavigate();
   return (
     <div className={styles.leftside}>
-      <h1>Logo</h1>
+      <img src={logo} alt='logo' width={90} height={40} />
       <div className={styles.btn1}>
         <button onClick={() => { navigate('/create-game'); }} variant="primary" className={styles.createBtn}>UPLOAD GAME</button>
       </div>

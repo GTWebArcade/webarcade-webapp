@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import styles from './styles.module.css';
 import { API_URL, getAuthHeaders } from '../../api';
+import logo from '../../images/logo.png';
 
 function SignUpPage() {
   const [user, setUser] = useState();
@@ -55,8 +56,8 @@ function SignUpPage() {
   return (
     <div className={styles.signupContainer}>
       <div className={styles.header}>
-          <p>LOGO</p>
-          <button className={styles.loginButton} onClick={navigateLogin}>LOGIN</button>
+        <img className={styles.logo} src={logo} alt='logo' width={90} height={40} />
+        <button className={styles.loginButton} onClick={navigateLogin}>LOGIN</button>
       </div>
       <div className={styles.signupArea}>
         <div className={styles.inSignup}>
