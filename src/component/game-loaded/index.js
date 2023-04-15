@@ -12,7 +12,6 @@ import { Unity, useUnityContext } from 'react-unity-webgl';
 import styles from './styles.module.css';
 import { API_URL, getAuthHeaders } from '../../api';
 import logo from '../../images/logo.png';
-
 function UnityWrapper(props) {
   const { unityProvider, loadingProgression, isLoaded } = useUnityContext({
     loaderUrl: props.loaderUrl,
