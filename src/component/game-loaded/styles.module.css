@@ -1,23 +1,35 @@
 .center {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     background: #4E4E4E;
-    ;
 }
 .section {
     display: flex;
-    overflow: auto;
+    flex-direction: row;
     background-color: white;
+    text-align: center;
     height: 20%;
     width: 100%;
 }
 .text {
     font-size: 1.875em;
     color: black;
+    text-align: center;
 }
 .button {
     margin-left: auto;
     width: 10%;
+}
+.logo {
+    position: fixed;
+    left: 0;
+    top: 0px;
+}
+.title3 {
+    padding-top: 30px;
+}
+
+.modalBtn {
+    width: 200px;
 }

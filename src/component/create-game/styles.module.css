@@ -1,5 +1,6 @@
 .createGameContainer {
-    background-color: grey;
+    background-color: #C16DCF;
+    height: 100vh;
 }
 
 .inGameArea {
@@ -14,7 +15,7 @@
 .header {
     display: flex;
     flex-direction: row;
-    background-color: darkgray;
+    background-color: #4e4e4e;
     box-shadow: 0px 0px 10px black;
     padding: 15px;
 }
@@ -23,6 +24,10 @@
     border: 2px solid white;
     color: white;
     max-width: 100px;
+    position: fixed;
+    right: 30px;
+    background-color: #4e4e4e;
+    font-family: Russo One;
 }
 
 .gameArea {
@@ -31,6 +36,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     padding-top: 75px;
+    font-family: Russo One;
 }
 
 .title {
@@ -40,12 +46,19 @@
 .infoSec {
     display: flex;
     flex-direction: row;
+
 }
 
 .gameInfo {
     display: flex;
     flex-direction: column;
     padding-top: 20px;
+}
+.gameInfo input {
+    font-family: IBM Plex Mono;
+}
+.gameInfo textarea {
+    font-family: IBM Plex Mono;
 }
 
 .sbtn {
@@ -71,9 +84,16 @@ button {
 
 .left input {
     border: 2px solid black;
-    width: 200px;
+    width: 250px;
 }
 
 .right {
     padding-left: 50px;
+}
+
+.desc {
+    min-height: 180px;
+    max-height: 180px;
+    word-wrap: normal;
+    border: 2px solid black;
 }

@@ -1,27 +1,41 @@
-.dummyStyle {
-    color: blue;
-}
-h1 {
-    font-weight: 500;
-    margin-left: 10px;
-}
-
-.buttonStyle {
-    background-color: blue;
-}
 
 .alignRight {
-    margin-right: -100px;
-    width: 250px;
-    padding: 10px 24px;
+    position: absolute;
+    right: 3%;
+    padding: 10px;
+}
+
+.alignRight button {
+    background-color: #4E4E4E;
+    border: solid 3px white;
+    color: white;
+    width: 150px;
+}
+
+.leftside {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.leftside h1 {
+    font-weight: 500;
+    position: absolute;
+    left: 3%;
+}
+
+.btn1 {
+    position: absolute;
+    left: 13%;
 }
 
 .classone {
     display: flex;
-    justify-content: space-between;
     flex-direction: row;
-    background-color: #c16dcf;
-    border: solid black 10px;
+    background-color: #4E4E4E;
+    height: 60px;
+    align-items: center;
+    font-family: 'Russo One';
 }
 
 .bodyText {
@@ -30,4 +44,142 @@ h1 {
 
 .gameClass { /* Using FlexBox, so do width: 100%, flexDirection, flexWrap, gap, display: 'flex', height: '100%', margin, padding */
     background-color: #c16dcf;
+}
+
+.createBtn {
+    width: 150px;
+    background-color: #4E4E4E;
+    color: white;
+}
+
+.name {
+    padding-right: 80px;
+    font-size: 20px;
+}
+
+.review {
+    min-height: 80px;
+    max-height: 80px;
+    min-width: 100%;
+    word-wrap: normal;
+}
+
+.gamesWrap {
+    background-color: #c16dcf;
+    min-height: 100vh;
+    height: 100%;
+}
+
+.gameCard {
+    width: 300px;
+    height: 300px;
+    background-color: white;
+    box-shadow: 0 8px 20px #4E4E4E;
+    position: relative;
+}
+
+.gameImage {
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.gameImage:hover {
+    display: none;
+}
+
+.gameDescription {
+    z-index: 10000;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0);
+    color: rgba(0, 0, 0, 0);
+    margin: 0;
+    overflow-y: scroll;
+}
+
+.gameDescription:hover {
+    z-index: 10000;
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 70%);
+    color: white;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    margin: 0;
+}
+
+.welcome {
+    display: flex;
+    flex-direction: row;
+    height: 70px;
+    background-color: white;
+    align-items: center;
+}
+
+.welcome p {
+    font-size: 25px;
+    font-family: 'Russo One';
+    font-weight: 400;
+    position: absolute;
+    left: 2%;
+    margin-top: 1%;
+}
+
+.welcome input {
+    position: absolute;
+    right: 50px;
+    font-family: 'IBM Plex Mono';
+    width: 22%;
+    height: 4.5%;
+}
+
+.entrance {
+    text-align: center;
+    height: 80px;
+    background-color: #858585;
+    box-shadow: 0 5px 4px #4E4E4E;
+    font-family: 'Russo One';
+    font-weight: 400;
+    font-size: 35px;
+}
+
+.entrance p {
+    padding-top: 1%;
+}
+
+.gameContainer {
+    background-color: #4E4E4E;
+}
+
+.gameTitle {
+    color: white;
+    font-family: 'IBM Plex Mono';
+    height: 10%;
+}
+
+.gameTitle p {
+    padding-top: 4%;
+}
+
+.allGames {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 70px;
+    padding: 50px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
 }

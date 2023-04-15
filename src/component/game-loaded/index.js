@@ -1,3 +1,6 @@
+/* eslint-disable no-restricted-globals */
+/* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable no-unused-vars */
 import React, { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 import {
@@ -7,8 +10,9 @@ import {
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { Unity, useUnityContext } from 'react-unity-webgl';
 import styles from './styles.module.css';
-import { API_URL } from '../../api';
-// import { getPost, getPosts } from './api';
+import { API_URL, getAuthHeaders } from '../../api';
+import logo from '../../images/logo.png';
+
 function UnityWrapper(props) {
   const { unityProvider } = useUnityContext({
     loaderUrl: props.loaderUrl,
@@ -22,6 +26,7 @@ function UnityWrapper(props) {
 }
 
 function GameLoadedPage() {
+  const navigate = useNavigate();
   // const [unityProvider, setUnityProvider] = useState(undefined);
   /*
   const { unityProvider } = useUnityContext({
@@ -32,14 +37,18 @@ function GameLoadedPage() {
   });
   */
   const [game, setGame] = useState(undefined);
+  const [name, setName] = useState('');
   const { id } = useParams();
   console.log(id);
   useEffect(() => {
     console.log('render');
     const url = `${API_URL}/api/v1/game/${id}`;
     console.log('url', url);
-    axios.get(url).then((res) => {
+    axios.get(url, {
+      headers: getAuthHeaders(),
+    }).then((res) => {
       console.log('game info:', res.data);
+      setName(res.data.game.name);
       setGame(res.data.game);
     });
   }, [id]);
@@ -48,6 +57,12 @@ function GameLoadedPage() {
   const [devicePixelRatio, setDevicePixelRatio] = useState(
     window.devicePixelRatio,
   );
+
+  // try to remove the alert with the error - just print to console
+
+  // function alert(message) {
+  //   console.log(message);
+  // }
 
   const handleChangePixelRatio = useCallback(
     () => {
@@ -76,23 +91,24 @@ function GameLoadedPage() {
     handleChangePixelRatio();
   }, [handleChangePixelRatio]);
 
-  const navigate = useNavigate();
-
   function navigateLanding() {
     navigate('/');
   }
   function navigateGamesView() {
-    navigate('/games');
+    const urlSplit = location.href.split('/');
+    location.href = `${urlSplit[0]}/games`;
   }
 
-  return (<div className={styles.center}>
-    <span className={styles.section}>
-      <h1 className={styles.text}>
-      Game title, to be implemented
-      </h1>
-      <button className={styles.button} onClick={navigateGamesView}>Back to Games</button>
+  return (
+  <div className={styles.center}>
+    <div className={styles.section}>
+      <button variant="primary" onClick={navigateGamesView} className={styles.modalBtn}>Go Back</button>
+      {/* <button className={styles.button} onClick={navigateGamesView}>Back to Games</button> */}
       <button className={styles.button} onClick={navigateLanding}>Log Out</button>
-    </span>
+    </div>
+    <div className={styles.titleSec}>
+      <h1 className={styles.text}>{name}</h1>
+    </div>
     {
       game && <UnityWrapper loaderUrl={game.unityLoaderUrl}
       dataUrl={game.unityDataUrl}
