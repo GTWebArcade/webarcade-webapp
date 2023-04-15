@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import styles from './styles.module.css';
 import { API_URL } from '../../api';
+import logo from '../../images/logo.png';
 
 function LeftSide() {
   const navigate = useNavigate();
@@ -16,6 +17,7 @@ function LeftSide() {
   return (
     <div className={styles.leftSide}>
         <div className={styles.leftBox}>
+        <img className={styles.logo} src={logo} alt='logo' width={90} height={40} />
         <h2>GT Web Dev's</h2>
         <h1 className={styles.neon}>Web Arcade</h1>
         <p className={styles.bodyText}>Enter the Georgia Tech Web Dev Web Arcade to play

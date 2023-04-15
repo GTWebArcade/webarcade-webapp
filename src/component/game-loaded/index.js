@@ -102,6 +102,7 @@ function GameLoadedPage() {
   return (
   <div className={styles.center}>
     <div className={styles.section}>
+    <img className={styles.logo} src={logo} alt='logo' width={90} height={40} />
       <button variant="primary" onClick={navigateGamesView} className={styles.modalBtn}>Go Back</button>
       {/* <button className={styles.button} onClick={navigateGamesView}>Back to Games</button> */}
       <button className={styles.button} onClick={navigateLanding}>Log Out</button>
