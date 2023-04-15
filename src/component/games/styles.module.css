@@ -102,11 +102,9 @@
     margin: 0;
     overflow-y: scroll;
 }
-
 ::-webkit-scrollbar-track {
     background: rgba(0, 0, 0, 0.0);
 }
-
 .gameDescription:hover {
     z-index: 10000;
     position: absolute;

@@ -11,17 +11,26 @@ import {
 import { Unity, useUnityContext } from 'react-unity-webgl';
 import styles from './styles.module.css';
 import { API_URL, getAuthHeaders } from '../../api';
-// import { getPost, getPosts } from './api';
+import logo from '../../images/logo.png';
+
 function UnityWrapper(props) {
-  const { unityProvider } = useUnityContext({
+  const { unityProvider, loadingProgression, isLoaded } = useUnityContext({
     loaderUrl: props.loaderUrl,
     dataUrl: props.dataUrl,
     frameworkUrl: props.frameworkUrl,
     codeUrl: props.codeUrl,
   });
-  return (<Unity unityProvider={unityProvider}
-  style={{ width: 800, height: 600 }}
-  devicePixelRatio={devicePixelRatio} />);
+  return (
+    <>
+    {!isLoaded && (
+      <h1 className={styles.loading}>Loading Application...
+      {Math.round(loadingProgression * 100)}%</h1>
+    )}
+    <Unity unityProvider={unityProvider}
+    style={{ width: 800, height: 600 }}
+    devicePixelRatio={devicePixelRatio} />
+    </>
+  );
 }
 
 function GameLoadedPage() {
@@ -101,6 +110,7 @@ function GameLoadedPage() {
   return (
   <div className={styles.center}>
     <div className={styles.section}>
+    <img className={styles.logo} src={logo} alt='logo' width={90} height={40} />
       <button variant="primary" onClick={navigateGamesView} className={styles.modalBtn}>Go Back</button>
       {/* <button className={styles.button} onClick={navigateGamesView}>Back to Games</button> */}
       <button className={styles.button} onClick={navigateLanding}>Log Out</button>

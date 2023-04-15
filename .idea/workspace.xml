@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a13deca-800d-428b-8918-41542b88efff" name="Changes" comment="Show game description on hover">
+    <list default="true" id="3a13deca-800d-428b-8918-41542b88efff" name="Changes" comment="Rename input fields">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/games/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/games/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/component/games/styles.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/games/styles.module.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
