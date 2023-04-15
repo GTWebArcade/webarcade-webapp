@@ -5,7 +5,6 @@ import styles from './styles.module.css';
 import { API_URL, getAuthHeaders } from '../../api';
 import logo from '../../images/logo.png';
 
-
 function SignUpPage() {
   const [user, setUser] = useState();
   const [ema, setEma] = useState();
