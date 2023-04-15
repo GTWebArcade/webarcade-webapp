@@ -4,6 +4,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import styles from './styles.module.css';
 import { API_URL, getAuthHeaders } from '../../api';
+import logo from '../../images/logo.png';
 
 function CreateGamePage() {
   const [name, setName] = useState('');
@@ -143,7 +144,7 @@ function CreateGamePage() {
   return (
     <div className={styles.createGameContainer}>
       <div className={styles.header}>
-          <p>LOGO</p>
+        <img className={styles.logo} src={logo} alt='logo' width={90} height={40} />
           <button className={styles.loginButton} onClick={navigateBack}>Back</button>
       </div>
       <div className={styles.gameArea}>
