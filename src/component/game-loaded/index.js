@@ -99,8 +99,12 @@ function GameLoadedPage() {
     handleChangePixelRatio();
   }, [handleChangePixelRatio]);
 
+  const [reviewText, setReviewText] = useState('');
+  const [reviewStars, setReviewStars] = useState(3);
+
   function navigateLanding() {
-    navigate('/');
+    localStorage.removeItem('user');
+    location.href = '/';
   }
   function navigateGamesView() {
     const urlSplit = location.href.split('/');
@@ -123,6 +127,21 @@ function GameLoadedPage() {
       dataUrl={game.unityDataUrl}
       frameworkUrl={game.unityFrameworkUrl} codeUrl={game.unityCodeUrl} />
     }
+    <input type="range" id="stars" name="stars" min="0" max="5" value={reviewStars.toString()} onChange={(e) => {
+      setReviewStars(parseInt(e?.target?.value || 3, 10));
+    }}></input>
+    <div>{reviewStars} Stars</div>
+    <input onClick={() => {
+      // eslint-disable-next-line no-alert
+      const newReviewText = window.prompt('Please write a review', reviewText);
+      setReviewText(newReviewText);
+    }} value={reviewText}></input>
+    <button onClick={() => {
+      // TODO: review text is in reviewText variable defined earlier
+      // TODO: review stars is in reviewStars variable defined earlier
+      // eslint-disable-next-line no-alert
+      alert(`TODO: make API call to create review object with text ${reviewText} and stars ${reviewStars}`);
+    }}>Submit Review</button>
   </div>);
 }
 export default GameLoadedPage;
