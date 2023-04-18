@@ -1,40 +1,140 @@
 .center {
-    display: flex;
-    flex-direction: column;
     align-items: center;
-    background: #4E4E4E;
+    background-color: #4E4E4E;
+    min-height: 100vh;
 }
+
 .section {
     display: flex;
     flex-direction: row;
-    background-color: white;
-    text-align: center;
-    width: 100%;
+    height: 60px;
+    background-color: #4E4E4E;
+    align-items: center;
+    font-family: 'Russo One';
 }
+
+.titleSec {
+    height: 60px;
+    background-color: white;
+    font-family: 'Russo One';
+    box-shadow: 0 5px 4px black;
+}
+
 .text {
     font-size: 1.875em;
     color: black;
     text-align: center;
+    font-size: 33px;
+    font-weight: 400;
+    padding-top: 0.8%;
 }
+
+.gameContainer {
+    text-align: center;
+}
+
+.reviewContainer {
+    background-color: #4E4E4E;
+    box-shadow: 5px 0 8px black;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    font-family: 'Russo One';
+}
+
 .loading {
-    position: absolute;
-    top: 50%;
+    text-align: center;
     color: white;
     font-size: 30px;
 }
+
 .button {
-    margin-left: auto;
-    width: 10%;
+    position: absolute;
+    right: 3%;
+    background-color: #4E4E4E;
+    border: solid 3px white;
+    color: white;
+    width: 150px;
 }
+
 .logo {
-    position: fixed;
-    left: 0;
-    top: 0px;
+    position: absolute;
+    left: 2%;
 }
-.title3 {
-    padding-top: 30px;
-}
+
 .modalBtn {
-    margin-left: 90px;
-    width: 100px;
+    position: absolute;
+    right: 230px;
+    width: 150px;
+    font-size: 17px;
+    font-weight: 400;
+}
+
+.reviewContainer input {
+    min-width: 450px;
+}
+
+.reviewContainer button {
+    width: 150px;
+}
+
+.reviewContainer h3 {
+    color: white;
+    font-size: 33px;
+}
+
+.postReview {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.postReview button {
+    background-color: #4E4E4E;
+    border: solid 3px white;
+    color: white;
+    width: 150px;
+}
+
+.reviewContent {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.reviewContent input {
+    height: 40px;
+}
+
+.reviewInput {
+    padding-top: 20px;
+    font-family: 'IBM Plex Mono';
+    text-align: center;
+}
+
+.rContainer {
+    padding-bottom: 20px;
+}
+
+.viewContainer {
+    font-family: 'IBM Plex Mono';
+    border: solid 3px white;
+    color: white;
+    padding: 10px;
+    margin: auto;
+    width: 30%;
+}
+
+.mainPart {
+    display: flex;
+    flex-direction: row;
+}
+
+.mainPart p {
+    font-size: 20px;
+}
+
+.starRating {
+    position: absolute;
+    right: 36%;
 }

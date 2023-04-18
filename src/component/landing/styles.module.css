@@ -65,6 +65,10 @@ a {
 
 }
 
+.leftSide img {
+    padding-bottom: 5%;
+}
+
 .leftBox {
     margin: auto;
     display: flex;

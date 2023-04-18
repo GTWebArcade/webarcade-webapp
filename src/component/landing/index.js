@@ -17,7 +17,7 @@ function LeftSide() {
   return (
     <div className={styles.leftSide}>
         <div className={styles.leftBox}>
-        <img className={styles.logo} src={logo} alt='logo' width={90} height={40} />
+        <img className={styles.logo} src={logo} alt='logo' width={200} height={150} />
         <h2>GT Web Dev's</h2>
         <h1 className={styles.neon}>Web Arcade</h1>
         <p className={styles.bodyText}>Enter the Georgia Tech Web Dev Web Arcade to play
