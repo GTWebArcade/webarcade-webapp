@@ -4,9 +4,6 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Modal from 'react-bootstrap/Modal';
-import Button from 'react-bootstrap/Button';
-import { Rating } from 'react-simple-star-rating';
 import styles from './styles.module.css';
 import { API_URL, getAuthHeaders } from '../../api';
 import logo from '../../images/logo.png';
@@ -48,24 +45,7 @@ function GamesPage() {
   const navigate = useNavigate();
 
   const [games, setGames] = useState([]); // Make array for games
-  const [review, setReview] = useState('');
-  const [rating, setRating] = useState(0);
-  const [count, setCount] = useState(0);
   const [user, setUser] = useState('');
-  const handleRating = (rate) => {
-    setRating(rate);
-  };
-
-  const [show, setShow] = useState(false);
-  const handleClose = () => {
-    setShow(false);
-  };
-  const handleShow = async () => {
-    window.location.reload();
-    localStorage.setItem('page', 'games');
-    handleShow();
-    setShow(true);
-  };
 
   useEffect(() => {
     // navigate to landing page if not signed in
@@ -82,51 +62,13 @@ function GamesPage() {
       // TODO: fix sytax
       setGames(res.data.games);
     });
-    // if (localStorage.getItem('page') === 'games-loaded') {
+    // if (localStorage.getItem('page') === 'loaded') {
     //   handleShow();
     // }
   }, []);
 
-  const sendReview = () => {
-    axios.post(`${API_URL}/api/v1/game/create-game`, {
-      user: JSON.parse(localStorage.getItem('user')).id,
-      gameId: new URL(window.location.href).searchParams.get('gameId'),
-      ratingScore: rating,
-      ratingMessage: review,
-      createdAt: Date.now(),
-      updatedAt: Date.now(),
-    }, {
-      headers: getAuthHeaders(),
-    }).then((response) => {
-      const serverMessage = response?.data?.message || 'no message from server';
-      console.log(serverMessage);
-      setShow(false);
-    }).catch((error) => {
-      console.log('Error: ', error?.response?.data?.message);
-    });
-  };
-
   return (
       <div className={styles.gamesWrap}>
-        <Modal show={show} onHide={handleClose}>
-          <Modal.Header closeButton>
-            <Modal.Title>Review</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-            <p>Before you player another game, leave a rating.</p>
-            <Rating
-              onClick={handleRating}
-              // onPointerEnter={onPointerEnter}
-              // onPointerLeave={onPointerLeave}
-              // onPointerMove={onPointerMove}
-            />
-            <p className={styles.title3}>Leave a review as well.</p>
-            <textarea id="rev" type="text" wrap='soft' className={styles.review} placeholder='Give a review.' value={review} onChange={(event) => { setReview(event?.target?.value); }}></textarea>
-          </Modal.Body>
-          <Modal.Footer>
-            <Button variant="primary" onClick={sendReview}>Submit</Button>
-          </Modal.Footer>
-        </Modal>
         <div className={styles.classone}>
           <LeftText/>
           <RightText/>

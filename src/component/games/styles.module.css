@@ -18,22 +18,22 @@
     align-items: center;
 }
 
-.leftside h1 {
+.leftside img {
     font-weight: 500;
     position: absolute;
-    left: 3%;
+    left: 2%;
 }
 
 .btn1 {
     position: absolute;
-    left: 13%;
+    left: 10%;
 }
 
 .classone {
     display: flex;
     flex-direction: row;
     background-color: #4E4E4E;
-    height: 60px;
+    height: 70px;
     align-items: center;
     font-family: 'Russo One';
 }
@@ -102,9 +102,11 @@
     margin: 0;
     overflow-y: scroll;
 }
+
 ::-webkit-scrollbar-track {
     background: rgba(0, 0, 0, 0.0);
 }
+
 .gameDescription:hover {
     z-index: 10000;
     position: absolute;
