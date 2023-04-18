@@ -70,7 +70,7 @@
 }
 
 .reviewContainer input {
-    min-width: 500px;
+    min-width: 450px;
 }
 
 .reviewContainer button {
@@ -103,16 +103,38 @@
 }
 
 .reviewContent input {
-    height: 50px;
+    height: 40px;
 }
 
 .reviewInput {
     padding-top: 20px;
     font-family: 'IBM Plex Mono';
+    text-align: center;
+}
+
+.rContainer {
+    padding-bottom: 20px;
 }
 
 .viewContainer {
     font-family: 'IBM Plex Mono';
     border: solid 3px white;
     color: white;
+    padding: 10px;
+    margin: auto;
+    width: 30%;
+}
+
+.mainPart {
+    display: flex;
+    flex-direction: row;
+}
+
+.mainPart p {
+    font-size: 20px;
+}
+
+.starRating {
+    position: absolute;
+    right: 36%;
 }

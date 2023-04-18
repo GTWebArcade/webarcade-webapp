@@ -39,24 +39,24 @@ function UnityWrapper(props) {
 function GameLoadedPage() {
   const navigate = useNavigate();
   const [reviewText, setReviewText] = useState('');
-  const [reviews, setReviews] = useState(undefined);
+  const [reviews, setReviews] = useState([{
+    _id: '0', user: '', ratingMessage: '', ratingScore: 0,
+  }]);
   const [game, setGame] = useState(undefined);
   const [name, setName] = useState('');
   const { id } = useParams();
-
   function getRatings() {
     axios.get(`${API_URL}/api/v1/rating/get-ratings/${id}`, {
       headers: getAuthHeaders(),
     }).then((res) => {
       if (res.data.ratings) {
         setReviews(res.data.ratings);
-      } else {
-        setReviews();
       }
     });
   }
 
   useEffect(() => {
+    getRatings();
     const url = `${API_URL}/api/v1/game/${id}`;
     axios.get(url, {
       headers: getAuthHeaders(),
@@ -64,8 +64,6 @@ function GameLoadedPage() {
       setName(res.data.game.name);
       setGame(res.data.game);
     });
-
-    getRatings();
   }, [id, getRatings]);
 
   const [rating, setRating] = useState(0);
@@ -137,56 +135,69 @@ function GameLoadedPage() {
       console.log('Error: ', error?.response?.data?.message);
     });
 
+    setReviewText('');
+    setRating(0);
     getRatings();
   }
 
   return (
-  <div className={styles.center}>
-    <div className={styles.section}>
-      <img className={styles.logo} src={logo} alt='logo' width={90} height={40} />
-      <button variant="primary" onClick={navigateGamesView} className={styles.modalBtn}>LEAVE GAME</button>
-      <button className={styles.button} onClick={navigateLanding}>LOG OUT</button>
-    </div>
-    <div className={styles.titleSec}>
-      <h1 className={styles.text}>{name.toUpperCase()}</h1>
-    </div>
-    <div className={styles.gameContainer}>
-      <div>
-      {
-        game && <UnityWrapper loaderUrl={game.unityLoaderUrl}
-        dataUrl={game.unityDataUrl}
-        frameworkUrl={game.unityFrameworkUrl} codeUrl={game.unityCodeUrl} />
-      }
+    <div className={styles.center}>
+      <div className={styles.section}>
+        <img className={styles.logo} src={logo} alt='logo' width={90} height={40} />
+        <button variant="primary" onClick={navigateGamesView} className={styles.modalBtn}>LEAVE GAME</button>
+        <button className={styles.button} onClick={navigateLanding}>LOG OUT</button>
       </div>
-      <div className={styles.reviewContainer}>
-        <h3>REVIEWS</h3>
-        <div className={styles.postReview}>
-          <div className={styles.reviewContent}>
-            <Rating
-                onClick={handleRating}
-            />
-            <div className={styles.reviewInput}>
-              <input placeholder='Give a review...' onClick={() => {
-                // eslint-disable-next-line no-alert
-                const newReviewText = window.prompt('Please write a review', reviewText);
-                setReviewText(newReviewText);
-              }} value={reviewText}></input>
-            </div>
-          </div>
-          <button onClick={handleReview}>POST</button>
+      <div className={styles.titleSec}>
+        <h1 className={styles.text}>{name.toUpperCase()}</h1>
+      </div>
+      <div className={styles.gameContainer}>
+        <div>
+        {
+          game && <UnityWrapper loaderUrl={game.unityLoaderUrl}
+          dataUrl={game.unityDataUrl}
+          frameworkUrl={game.unityFrameworkUrl} codeUrl={game.unityCodeUrl} />
+        }
         </div>
-        <div className={styles.reviewItems}>
-          {reviews.map((review) => (
-              <div className={styles.viewContainer} key={review._id}>
-                <p>{review.user}</p>
-                <p>{review.ratingMessage}</p>
-                <p>Rating: {review.ratingScore}</p>
+        <div className={styles.reviewContainer}>
+          <h3>REVIEWS</h3>
+          <div className={styles.postReview}>
+            <div className={styles.reviewContent}>
+              <Rating
+                  onClick={handleRating}
+                  initialValue={rating}
+              />
+              <div className={styles.reviewInput}>
+                <input placeholder='Give a review...' onClick={() => {
+                  // eslint-disable-next-line no-alert
+                  const newReviewText = window.prompt('Please write a review', reviewText);
+                  setReviewText(newReviewText);
+                }} value={reviewText}></input>
               </div>
-          ))}
+            </div>
+            <button onClick={handleReview}>POST</button>
+          </div>
+          <div className={styles.reviewItems}>
+            {reviews.map((review) => (
+              <div className={styles.rContainer}>
+                <div className={styles.viewContainer} key={review._id}>
+                  <div className={styles.mainPart}>
+                    <p>{review.user}</p>
+                    <div className={styles.starRating}>
+                      <Rating
+                          initialValue={review.ratingScore}
+                          size={20}
+                          readonly={true}
+                      />
+                    </div>
+                  </div>
+                  <p>{review.ratingMessage}</p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>
-  </div>
   );
 }
 export default GameLoadedPage;
